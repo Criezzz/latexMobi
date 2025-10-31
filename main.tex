@@ -2,20 +2,17 @@
 % !TEX options = -lualatex
 
 \documentclass{uetgraduation}
+\usepackage{enumitem}
 
 \begin{document}
 
-\studentname{kljkam}
-\title{Mẫu tài liệu tốt nghiệp cho LaTeX}
+\studentname{Nhóm chuốiiii}
+\title{Báo cáo Phát triển ứng dụng di động}
 \documenttype{Khóa luận tốt nghiệp đại học hệ chính quy}
 \major{Công nghệ thông tin}
 \year{2024}
 \supervisor{PGS. TS. Nguyễn Đông A}
 \cosupervisor{TS. Phạm Tuấn B}
-\englishtitle{Graduation document template for LaTeX}
-\englishmajor{Information technology}
-\englishsupervisor{Assoc. Prof., Dr. Nguyễn Đông A}
-\englishcosupervisor{Dr. Phạm Tuấn B}
 
 \makecovers
 
@@ -36,6 +33,52 @@
 
 \textit{\textbf{Từ khóa:} MPLS, Chuyển mạch nhãn.}
 \end{preamble}
+\begin{contentlisting}
+    \begin{contentlistingsection}{}
+        \listoftables
+    \end{contentlistingsection}
 
+    \begin{contentlistingsection}{}
+        \listoffigures
+    \end{contentlistingsection}
+
+    \begin{contentlistingsection}{Danh sách thuật ngữ}
+        % Thêm các mục thuật ngữ dưới đây theo định dạng \item[Thuật ngữ] Mô tả
+        \begin{description}
+            \item[hehe] so hehe
+        \end{description}
+    \end{contentlistingsection}
+
+    \begin{contentlistingsection}{Lời cam đoan}
+        {\centering
+        Tôi xin cam đoan rằng nội dung khóa luận này là kết quả lao động cá nhân của tôi,
+        trừ những phần đã được trích dẫn và tham khảo rõ ràng. Tôi chịu trách nhiệm về
+        những nội dung thuộc về mình và xin cam kết không vi phạm các quy định về đạo đức
+        học thuật.\par}
+
+        \vspace{2cm}
+        \begin{center}
+            \begin{minipage}[t]{0.3\textwidth}
+                \centering
+                \textbf{Chữ ký học sinh}
+            \end{minipage}\hfill
+            \begin{minipage}[t]{0.3\textwidth}
+                \centering
+                \textbf{Chữ ký học sinh}
+            \end{minipage}\hfill
+            \begin{minipage}[t]{0.3\textwidth}
+                \centering
+                \textbf{Chữ ký học sinh}
+            \end{minipage}
+        \end{center}
+    \end{contentlistingsection}
+\end{contentlisting}
+
+% Bắt đầu nội dung chính (chương 1)
+\chapter{Đặt vấn đề}
+\label{ch:dat-van-de}
+
+\noindent Đây là phần mở đầu chương 1 (Đặt vấn đề). Thêm nội dung chi tiết về bối cảnh,
+vấn đề nghiên cứu, mục tiêu và phạm vi ở đây.
 
 \end{document}

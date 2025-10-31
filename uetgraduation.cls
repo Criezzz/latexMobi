@@ -169,7 +169,7 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 	}{
 		To ensure consistency, place all content listing sections into the \`contentlisting\` environment.
 	}\fi%
-	\noindent\Large\textbf{#1}\par\vspace{1cm}\normalsize
+	{\centering\Large\textbf{#1}\par}\vspace{1cm}\normalsize
 }{\clearpage}
 \newcommand\tableofcontents{\begin{contentlistingsection}{Mục lục}\@starttoc{toc}\end{contentlistingsection}}
 \renewcommand\numberline[2]{#1 #2}
