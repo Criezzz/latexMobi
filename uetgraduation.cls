@@ -1,6 +1,6 @@
 % vim:syntax=tex
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uetgraduation}[2024/12/31
+\ProvidesClass{uetgraduation}[2025/12/31
 	LaTeX document class for Vietnam National University, University of Engineering and Technology (VNU-UET)
 	graduation documents.
 ]
@@ -31,6 +31,8 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 \raggedbottom
 \lefthyphenmin 64
 \frenchspacing
+% Default paragraph indent for body text
+\setlength\parindent{1cm}
 \setmainfont{Times New Roman}
 \mathfont[upper,lower,digits]{Times New Roman}
 \pagenumbering{roman}
@@ -80,6 +82,8 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 }}
 \def\@meta@cosupervisor\relax
 \def\@meta@englishtitle\relax
+\def\@meta@studentnametwo\relax
+\def\@meta@studentnamethree\relax
 \def\@meta@englishmajor{\PackageError{uetgraduation}{English major is not specified.}{
 	The major name in English needs to be specified for the cover pages.
 }}
@@ -98,15 +102,17 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 \DeclareRobustCommand\year[1]{\global\def\@meta@year{#1}}
 \DeclareRobustCommand\supervisor[1]{\global\def\@meta@supervisor{#1}}
 \DeclareRobustCommand\cosupervisor[1]{\global\def\@meta@cosupervisor{#1}\@meta@hascosupervisortrue}
+\DeclareRobustCommand\studentnametwo[1]{\global\def\@meta@studentnametwo{#1}}
+\DeclareRobustCommand\studentnamethree[1]{\global\def\@meta@studentnamethree{#1}}
 \DeclareRobustCommand\englishtitle[1]{\global\def\@meta@englishtitle{#1}\@meta@hasenglishsectionstrue}
 \DeclareRobustCommand\englishmajor[1]{\global\def\@meta@englishmajor{#1}}
 \DeclareRobustCommand\englishsupervisor[1]{\global\def\@meta@englishsupervisor{#1}}
 \DeclareRobustCommand\englishcosupervisor[1]{\global\def\@meta@englishcosupervisor{#1}}
 \newenvironment{coverpage}{%
 	\setlength\parindent{0cm}\tikz[overlay, remember picture]{
-		\draw[line width=3pt,color=black,fill=none]
+		\draw[line width=3pt,color=black,fill opacity = 0]
 			($(current page.north west)+(2.5cm,-2cm)$) rectangle ($(current page.south east)-(1.5cm,-2.5cm)$);
-		\draw[line width=1pt,color=black,fill=none]
+		\draw[line width=1pt,color=black,fill opacity = 0]
 			($(current page.north west)+(2.65cm,-2.15cm)$) rectangle ($(current page.south east)-(1.65cm,-2.65cm)$);
 	}%
 }{\clearpage\normalsize}
@@ -116,10 +122,13 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 		\setfontsize{12pt}\textbf{ĐẠI HỌC QUỐC GIA HÀ NỘI}\par
 		\textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ}\par
 		\vspace{2cm}\includegraphics[scale=0.6]{UET logo.pdf}\par
-		\vspace{0.5cm}\setfontsize{14pt}\textbf{\@meta@studentname}\par
 		\vspace{1.5cm}\setfontsize{18pt}\textbf{\MakeUppercase{\@meta@title}}\par
 		\vspace{2cm}\setfontsize{14pt}\textbf{\MakeUppercase{\@meta@documenttype}}\par
 		\textbf{Ngành: \@meta@major}\par
+		\vspace{2cm}\setfontsize{14pt}\textbf{Thành viên nhóm}\par
+		\setfontsize{14pt}\textbf{\@meta@studentname}\par
+		\setfontsize{14pt}\textbf{\@meta@studentnametwo}\par
+		\setfontsize{14pt}\textbf{\@meta@studentnamethree}\par
 		\vfill\setfontsize{12pt}\textbf{HÀ NỘI -- \@meta@year}\par%
 	\end{coverpage}
 	\begin{coverpage}%
@@ -127,7 +136,6 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 			\centering%
 			\setfontsize{12pt}\textbf{ĐẠI HỌC QUỐC GIA HÀ NỘI}\par
 			\textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ}\par
-			\vspace{1.5cm}\setfontsize{14pt}\textbf{\@meta@studentname}\par
 			\vspace{1.5cm}\setfontsize{18pt}\textbf{\MakeUppercase{\@meta@title}}\par
 			\vspace{3cm}\setfontsize{14pt}\textbf{\MakeUppercase{\@meta@documenttype}}\par
 			\textbf{Ngành: \@meta@major}\par%
@@ -156,7 +164,7 @@ luatexbase.add_to_callback("mathfont.add_math_constants", custom_math_constants,
 }
 
 \newenvironment{preamble}[1]{%
-	\clearpage\setlength\parindent{0cm}{\centering\textbf{\MakeUppercase{#1}}\par}\vspace{1cm}\setfontsize{12pt}
+	\clearpage\setlength\parindent{1cm}{\centering\textbf{\MakeUppercase{#1}}\par}\vspace{1cm}\setfontsize{12pt}
 }{\normalsize}
 
 \newif\if@incontentlisting\@incontentlistingfalse

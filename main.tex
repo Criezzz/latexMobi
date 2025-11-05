@@ -3,36 +3,25 @@
 
 \documentclass{uetgraduation}
 \usepackage{enumitem}
-
+\usepackage[hidelinks]{hyperref} 
+\usepackage{xurl}
+\urlstyle{same} 
+\usepackage{unicode-math}
+\setmathfont{Cambria Math}
 \begin{document}
 
-\studentname{Nhóm chuốiiii}
-\title{Báo cáo Phát triển ứng dụng di động}
-\documenttype{Khóa luận tốt nghiệp đại học hệ chính quy}
+\studentname{23020122 -- Phùng Hải Nam}
+\studentnametwo{23020122 -- Nguyễn Văn Cường}
+\studentnamethree{23020122 -- Tô Quang Thắng}
+\title{Ứng dụng EnglishForum}
+\documenttype{Báo cáo Phát triển ứng dụng di động}
 \major{Công nghệ thông tin}
-\year{2024}
+\year{2025}
 \supervisor{PGS. TS. Nguyễn Đông A}
 \cosupervisor{TS. Phạm Tuấn B}
 
 \makecovers
 
-
-\begin{preamble}{Tóm tắt}
-    \textbf{Tóm tắt:} Hiện nay, với sự phát triển nhanh chóng của các dịch vụ IP và
-    sự bùng nổ của Internet đã dẫn đến một loạt các vấn đề được đặt ra như: tốc độ
-    truyền, quản lý chất lượng dịch vụ, điều phối dung lượng... Gần đây, công nghệ
-    chuyển mạch nhãn đa giao thức MPLS được đề xuất, MPLS đã kết hợp được khả năng
-    định tuyến tốt ở lớp 3 và chuyển mạch ở lớp 2, nó mở ra một viễn cảnh cho rất
-    nhiều ứng dụng quan trọng. Mạng riêng ảo VPN là một trong những ứng dụng nổi
-    bật nhất của công nghệ MPLS, MPLS VPN đã khắc phục được hầu hết những nhược
-    điểm tồn tại trước đó trong công nghệ VPN truyền thống. Do vậy, trong đề tài
-    khóa luận này em muốn giới thiệu công nghệ MPLS và dịch vụ MPLS VPN. Nội dung
-    của đồ án sẽ tập trung trình bày những đặc điểm cơ bản của kiến trúc MPLS, tính
-    ưu việt trong ứng dụng MPLS VPN, và các bước tiến hành cấu hình trên Router của
-    hãng Cisco.
-
-\textit{\textbf{Từ khóa:} MPLS, Chuyển mạch nhãn.}
-\end{preamble}
 \begin{contentlisting}
     \begin{contentlistingsection}{}
         \listoftables
@@ -50,9 +39,9 @@
     \end{contentlistingsection}
 
     \begin{contentlistingsection}{Lời cam đoan}
-        {\centering
-        Tôi xin cam đoan rằng nội dung khóa luận này là kết quả lao động cá nhân của tôi,
-        trừ những phần đã được trích dẫn và tham khảo rõ ràng. Tôi chịu trách nhiệm về
+        {\indent
+        Chúng tôi xin cam đoan rằng nội dung khóa luận này là kết quả lao động cá nhân của cả nhóm,
+        trừ những phần đã được trích dẫn và tham khảo rõ ràng. Chúng chịu trách nhiệm về
         những nội dung thuộc về mình và xin cam kết không vi phạm các quy định về đạo đức
         học thuật.\par}
 
@@ -75,10 +64,113 @@
 \end{contentlisting}
 
 % Bắt đầu nội dung chính (chương 1)
-\chapter{Đặt vấn đề}
-\label{ch:dat-van-de}
+\chapter{Đặt vấn đề}\label{ch:dat-van-de}
+
 
 \noindent Đây là phần mở đầu chương 1 (Đặt vấn đề). Thêm nội dung chi tiết về bối cảnh,
 vấn đề nghiên cứu, mục tiêu và phạm vi ở đây.
+%--------------------------------
+\section{Hiện trạng}
+Tiếng anh từ lâu đã dần trở thành 1 ngôn
+ ngữ quan trọng mà mọi học sinh, sinh viên 
+ đều đầu tư rất nhiều thời gian để làm chủ.
+ Trong giai đoạn 2025 -- 2035, Bộ Giáo duc và
+ Đào tạo dự kiến 100\% học sinh được học tiếng anh
+ như ngôn ngữ thứ hai. Hiện nay, 
+mặc dù đã có nhiều trang trao đổi các vấn
+ đề về tiếng anh nhưng đa phần đều hoặc đã rất
+  cũ, hoặc không được cập nhật
+ thường xuyên, hoặc chỉ là 1 phần nhỏ trong 
+ một phần mềm lớn, bị làm lu mờ bởi rất nhiều chủ đề trao đổi khác.\par
+ Vấn đề dần lộ ra rõ đối với người học tiếng anh. Họ thiếu môi trường tương tác, 
+ khó tìm đối tác học tập, không có nơi để trao đổi các vấn đề về tiếng 
+ anh một cách hiệu quả.
+  Điều này dẫn đến việc học tiếng anh trở nên nhàm chán, 
+  thiếu động lực và không đạt được hiệu quả cao.\par
+  Với việc các ứng dụng trên di dộng ngày càng được ưa chuộng do tính
+  dễ dùng, tiện lợi của chúng, cộng với việc quan sát được sự thành công của 
+  các nền tảng diễn đàn trực tuyến chuyên biệt cho người dân
+  nội địa như 2channel\cite{2chan} ở Nhật Bản hay Dcard\cite{Dcard} ở Đài Loan, việc xây 
+  dựng một diễn đàn trên di động chuyên
+  biệt cho việc trao đổi và học tập tiếng anh được đánh giá là một phương án
+   khả thi.
+   Nền tảng này sẽ cung cấp môi trường tương tác, kết 
+   nối người học với nhau, giúp họ chia sẻ kiến thức,
+    kinh nghiệm và hỗ trợ lẫn nhau trong quá trình học tập.
+%--------------------------------
+\section{Các giải pháp đã có}
+
+\subsection{Mô tả}
+Hiện tại có rất nhiều trang web trực tuyến với mục đích hỗ trợ việc học tiếng anh. 
+Các trang web này cung cấp các bài học, tài liệu, và công cụ để người học có thể nâng cao kỹ năng tiếng anh của mình.
+ Một số trang web nổi bật kể đến như Duolingo, Memrise, \ldots. Các 
+ trang web này thường cung cấp các bài học tương tác, trò chơi học tập, và các bài kiểm tra để giúp người học theo dõi tiến trình của mình.\par
+ Ngoài ra, trên những nền tảng mạng xã hội cho phép tạo lập hội nhóm cũng hình
+ thành nhiều cộng đồng học tiếng anh. Các nhóm này cũng có mục đích tương tự là kết nối người học với nhau để trao đổi kiến thức và kinh nghiệm học tập.
+
+
+\subsection{Hạn chế}
+Các giải pháp hỗ trợ học tiếng anh hiện tại đã phần nào hỗ trợ khá tốt việc tự học
+tiếng anh. Tuy nhiên, chưa tạo được một môi trường cùng học tập tiếng anh giữa
+các người học với nhau một cách hiệu quả. Nhiều nền tảng chỉ tập trung vào việc
+ cung cấp tài liệu học tập mà thiếu đi các tính năng tương tác, trao đổi giữa người học.\par
+ Giải pháp sử dụng mạng xã hội làm cầu nối đã tạo được tính tương tác giữa người học với nhau,
+ nhưng quy mô còn nhỏ và thường là tự tổ chức giữa các thành viên trong nhóm, làm giảm khả năng tiếp cận
+ của người học mới.
+
+%--------------------------------
+\section{Báo cáo}
+% Tổng hợp kết quả kiểm thử
+\subsection{Kết quả kiểm thử hiệu}
+Trình bày kết quả ``kiểm thử hiệu năng''
+
+\subsection{Kết quả kiểm thử hệ thống}
+Trình bày kết quả kiểm thử hệ thống
+
+%--------------------------------
+\chapter{Kiến thức nền tảng}
+
+\chapter{Thu thập phân tích đặc tả yêu cầu}
+
+\section{Biểu đồ ca sử dụng hệ thống EnglishForum}
+
+\section{Mô tả ca sử dụng}
+\subsection{Ca sử dụng \textit{Tạo bài viết}}
+\subsection{Ca sử dụng \textit{Xem bài viết}}
+\subsection{Ca sử dụng \textit{Bình luận bài viết}}
+\section{Biểu đồ hoạt động}
+\subsection{Ca sử dụng \textit{Tạo bài viết}}
+\subsection{Ca sử dụng \textit{Xem bài viết}}
+\subsection{Ca sử dụng \textit{Bình luận bài viết}}
+\chapter{Thiết kế hệ thống}
+\section{Thiết kế mức cao}
+\section{Biểu đồ tuần tự}
+
+
+%--------------------------------
+
+% Tài liệu tham khảo 
+%Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 
+%các thông tin cần thiết và theo trình tự sau: 
+%Số thứ tự (đặt trong cặp dấu ngoặc vuông), 
+%Họ tên tác giả,
+% Tên tài liệu (bài báo, sách, ...),
+% Nguồn (tên tạp chí, tập, số, năm hoặc tên nhà xuất bản), 
+%Trang tham khảo
+\begin{thebibliography}{99}
+    \begin{bibsection}{Tiếng Việt}
+        \bibitem{hehe}
+            hehe, \textit{The Art of hehe}, .
+
+    \end{bibsection}
+
+    \begin{bibsection}{Tiếng Anh}
+        \bibitem{2chan}
+            ``2channel'', \textit{Wikipedia}, Wikipedia Foundation, 4 October 2025, \url{https://en.wikipedia.org/wiki/2channel}
+        \bibitem{Dcard}
+            ``Dcard'', \textit{Wikipedia}, Wikipedia Foundation, 29 October 2025, \url{https://en.wikipedia.org/wiki/Dcard}
+    \end{bibsection}
+\end{thebibliography}
 
 \end{document}
+
