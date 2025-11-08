@@ -1,0 +1,46 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Xem bài viết} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\hline
+
+\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\cline{4-5}
+ &  &  & Expected Output & Actual Output & \\
+\hline
+
+1 & Xem một bài viết hợp lệ có 1 ảnh & Bài viết có title, body, tag, có 1 ảnh &  Điều hướng đến màn hình bài viết chi tiết, bao gồm ảnh đại diện và tên tác giả, thời gian đăng tương đối, tag, title, body, ảnh, bộ đếm vote và bình luận & Như mong đợi & Pass \\
+\hline
+2 & Hiển thị ảnh xem trước & Bài viết có title, body, tag, có 1 ảnh & Hiển thị ảnh xem trước ở ngoài bài viết hợp lệ & Như mong đợi & Pass \\
+\hline
+3 & Xem bài viết hợp lệ có nhiều ảnh & Bài viết có title, body, tag, có nhiều hơn 1 ảnh & Điều hướng đến màn hình bài viết chi tiết, bao gồm ảnh đại diện và tên tác giả, thời gian đăng tương đối, tag, title, body, thư viện ảnh có thể vuốt trái phải để xem ảnh, bộ đếm vote và bình luận & Như mong đợi & Pass \\
+\hline
+4 & Phóng to ảnh toàn màn hình & Bài viết có title, body, tag, có 1 ảnh, thao tác pinch and pan & Ảnh phóng to tối đa, giữ đúng tỉ lệ. Nút đóng ảnh hoạt động. Thao tác pinch and pan hoạt động. & Như mong đợi & Pass \\
+\hline
+5 & Kéo xuống để làm mới & Bài viết có title, body, tag, có 1 ảnh. Chủ bài viết thay đổi title trước khi tester thực hiện thao tác kéo xuống & Hiển thị biểu tượng làm mới, nội dụng bài viết được cập nhật đúng với thay đổi & Như mong đợi & Pass \\
+\hline %dang can test
+6 & Xem một bài viết hợp lệ khi không có kết nối mạng & Bài viết có title, body, tag, có 1 ảnh. Tắt kết nối mạng. & Hiển thị biểu tượng tải bài viết ở giữa màn hình. & Như mong đợi & Pass \\
+\hline
+
+
+\end{tabularx}

@@ -1,0 +1,62 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Sửa bài viết} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\hline
+
+\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\cline{4-5}
+ &  &  & Expected Output & Actual Output & \\
+\hline
+
+1 & Sửa hợp lệ thêm ảnh & Title = ``Learning English – v2”, Body = ``Here are some tips - v2'', Tag đổi thành ``Hướng dẫn'', thêm 1 ảnh mới hợp lệ & Chỉnh sửa thành công, hiển thị snackbar ``Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết đã được cập nhật đúng nội dung mới & Như mong đợi & Pass \\
+\hline
+2 & Sửa hợp lệ nhưng mất kết nối & Title = ``Learning English – v3”, Body = ``Here are some tips - v3'', tag và ảnh giữ nguyên & Hiển thị snackbar báo lỗi ``Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại mạng''. & Như mong đợi & Pass \\
+\hline
+3 & Không thay đổi gì & Giữ nguyên title, body, tag, ảnh & Nhấn ``Lưu thay đổi'' vẫn hiển thị snackbar ``Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết & Như mong đợi & Pass \\
+\hline
+4 & Sửa nhưng bỏ trống title & Giữ nguyên body, tag, ảnh nhưng bỏ trống title & Nút lưu thay đổi bị vô hiệu hóa & Như mong đợi & Pass \\
+\hline
+5 & Sửa nhưng bỏ trống body & Giữ nguyên title, tag, ảnh nhưng bỏ trống body & Nút lưu thay đổi bị vô hiệu hóa & Như mong đợi & Pass \\
+\hline
+6 & Sửa hợp lệ xóa ảnh & Giữ nguyên title, body, tag nhưng xóa ảnh & Hiển thị snackbar ''Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết đã được cập nhật đúng nội dung mới (mất ảnh) & Như mong đợi & Pass \\
+\hline
+7 & Hủy chỉnh sửa & Title = ``Learning English – v4”, Body = ``Here are some tips - v4'', Tag = ``Hướng dẫn'', thêm 1 ảnh mới hợp lệ. Nhấn nút quay trở lại thay vì ``Lưu thay đổi'' & Bài viết không bị chỉnh sửa. Điều hướng về màn hình trước đó & Như mong đợi & Pass \\
+\hline
+8 & Sửa hợp lệ nhưng title chỉ nhập khoảng trắng & Title = ``  '', Body =``Here are some tips - v4''”, Tag = ``Hướng dẫn'', ảnh giữ nguyên & Nút ``Lưu thay đổi'' bị vô hiệu hóa & Như mong đợi & Pass \\
+\hline
+9 & Sửa hợp lệ nhưng body chỉ nhập khoảng trắng & Title = ``Learning English – v4'', Body = ``  '', Tag = ``Hướng dẫn'', ảnh giữ nguyên & Nút ``Lưu thay đổi'' bị vô hiệu hóa & Như mong đợi & Pass \\
+\hline
+
+10 & Thêm 1 ảnh hợp lệ & Giữ nguyên title, body, tag; thêm 1 ảnh mới hợp lệ khi bài viết đang có dưới 5 ảnh & Hiển thị snackbar ``Đã cập nhật bài viết''; danh sách ảnh gồm ảnh cũ và ảnh mới theo thứ tự thêm & Như mong đợi & Pass \\
+\hline
+11 & Vượt giới hạn số ảnh & Bài viết đang có 5 ảnh; tiếp tục thêm ảnh thứ 6 & Nút ``Thêm ảnh'' bị vô hiệu hoá & Như mong đợi & Pass \\
+\hline
+12 & Ảnh sai định dạng & Thêm ảnh đuôi \text{.heic}/\allowbreak\text{.tiff}/\allowbreak\text{.webp} & Hiện cảnh báo ``Chỉ hỗ trợ JPG, PNG, GIF'' và không thêm ảnh & Như mong đợi & Pass \\
+\hline
+13 & Ảnh quá dung lượng & Thêm ảnh hợp lệ nhưng kích thước >5MB & Hiện cảnh báo ``Kích thước ảnh phải \le 5MB'' và không thêm ảnh & Như mong đợi & Pass \\
+\hline
+
+
+
+\end{tabularx}

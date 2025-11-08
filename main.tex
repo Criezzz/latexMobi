@@ -3,6 +3,14 @@
 
 \documentclass{uetgraduation}
 \usepackage{enumitem}
+% Bảng kiểm thử: màu nền header, tabularx, đường kẻ dày/mảnh, ô đa dòng
+\usepackage{tabularx}
+% Cho bảng dài tự ngắt trang: kết hợp tabularx + longtable
+\usepackage{ltablex}
+\keepXColumns
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{multirow}
 \usepackage[hidelinks]{hyperref} 
 \usepackage{xurl}
 \urlstyle{same} 
@@ -145,9 +153,26 @@ Trình bày kết quả kiểm thử hệ thống
 \chapter{Thiết kế hệ thống}
 \section{Thiết kế mức cao}
 \section{Biểu đồ tuần tự}
+\section{Test}
 
+% Các bảng kiểm thử tách riêng theo chức năng
+\subsection{Đăng ký tài khoản}
+% Nội dung bảng nằm ở tables/dang-ky-tai-khoan.tex
 
-%--------------------------------
+\subsection{Đăng nhập tài khoản}
+% Nội dung bảng nằm ở tables/dang-nhap-tai-khoan.tex
+
+\subsection{Tạo bài viết}
+% Nội dung bảng nằm ở tables/tao-bai-viet.tex
+\input{tables/tao-bai-viet}
+
+\subsection{Xem bài viết}\
+% Nội dung bảng nằm ở tables/xem-bai-viet.tex
+\input{tables/xem-bai-viet}
+
+\subsection{Sửa bài viết}
+% Nội dung bảng nằm ở tables/sua-bai-viet.tex
+\input{tables/sua-bai-viet}
 
 % Tài liệu tham khảo 
 %Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 
