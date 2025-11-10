@@ -1,0 +1,59 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Xóa bài viết} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\hline
+
+\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\cline{4-5}
+ &  &  & Expected Output & Actual Output & \\
+\hline
+
+1 & Tạo bài viết hợp lệ (đầy đủ thông tin) & Title = ``Learning English'', Body = ``Here are some tips...'', Tag = ''Hỏi đáp'', không có ảnh & Bài viết được tạo thành công, hiển thị snackbar ``Đăng bài thành công'' và điều hướng tới bài viết vừa được tạo & Như mong đợi & Pass \\
+\hline
+2 & Không nhập tiêu đề & Title = ``'', Body = ``This is content.'', Tag = ``Hỏi đáp'' & Nút ``Tiếp tục'' bị ẩn đi & Như mong đợi & Pass \\
+\hline
+3 & Không nhập nội dung & Title = ``Learning English'', Body = ``'', Tag = ``Hỏi đáp'', không có ảnh & Nút ``Tiếp tục'' bị ẩn đi & Như mong đợi & Pass \\
+\hline
+4 & Thêm 1 ảnh hợp lệ & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = tùy chọn với kích thước ≤ 5MB & Bài viết được tạo thành công với hình ảnh đính kèm, điều hướng tới bài viết vừa được tạo & Như mong đợi & Pass \\
+\hline
+5 & Thêm 5 ảnh hợp lệ & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = 5 ảnh tùy chọn với kích thước ≤ 5MB & Bài viết được tạo thành công với hình ảnh đính kèm, điều hướng tới bài viết vừa được tạo & Như mong đợi & Pass \\
+\hline
+6 & Vượt giới hạn số ảnh & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = 6 ảnh tùy chọn với kích thước ≤ 5MB & Nút ``Thêm ảnh'' bị ẩn đi khi thêm tới ảnh thứ 5 & Như mong đợi & Pass \\
+\hline
+7 & Ảnh sai định dạng & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = sample với đuôi \text{.heic}/\allowbreak\text{.tiff}/\allowbreak\text{.webp} & Có thông báo ``Chỉ hỗ trợ JPG, PNG, GIF'' và không cho phép tải lên & Như mong đợi & Pass \\
+\hline
+8 & Ảnh quá dung lượng & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh có kích thước 6 MB & Có thông báo ``Kích thước ảnh phải ≤ 5MB'' và không cho phép tải lên & Như mong đợi & Pass \\
+\hline
+9 & Xóa 1 ảnh khỏi danh sách & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = 1 ảnh tùy chọn với kích thước ≤ 5MB & Ảnh được thêm bị xóa khỏi danh sách ảnh & Như mong đợi & Pass \\
+\hline
+10 & Đăng bài khi không có kết nối mạng & Title = ``Offline test'', Body = ``Should fail'', Tag = ``Hỏi đáp'', Ảnh = 1 ảnh tùy chọn với kích thước ≤ 5MB. Tắt kết nối mạng. & Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại mạng & Như mong đợi & Pass \\
+\hline
+11 & Tiếp tục đăng bài khi có kết nối mạng trở lại sau khi mất kết nối & Title = ``Offline test'', Body = ``Should fail'', Tag = ``Hỏi đáp'', Ảnh = 1 ảnh tùy chọn với kích thước ≤ 5MB. Tắt kết nối mạng, nhấn ``Đăng bài'' thất bại và bật lại kết nối mạng. & Sau khi bật lại mạng lên và nhấn đăng bài, bài viết được đăng thành công, hiển thị snackbar ``Đăng bài thành công'' và điều hướng tới bài viết vừa được tạo & Như mong đợi & Pass \\
+\hline
+12 & Làm mới biểu mẫu tạo bài viết sau khi đăng bài thành công & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = 1 ảnh tùy chọn với kích thước ≤ 5MB & Sau khi đăng bài thành công, biểu mẫu tạo bài viết được làm mới & Như mong đợi & Pass \\
+\hline
+13 & Biểu mẫu tạo bài viết được lưu trạng thái khi chưa đăng bài viết & Title = ``Learning English'', Body = ``Here are some tips'', Tag = ``Hỏi đáp'', Ảnh = 1 ảnh tùy chọn với kích thước ≤ 5MB & Tắt bỏ và mở lại biểu mẫu tạo bài viết, trạng thái được giữ lại & Như mong đợi & Pass \\
+\hline
+
+\end{tabularx}
