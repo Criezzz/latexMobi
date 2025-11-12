@@ -1,0 +1,45 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Vote} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\hline
+
+\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\cline{4-5}
+ &  &  & Expected Output & Actual Output & \\
+\hline
+
+1 & Upvote bài viết & Upvote ở thẻ bài viết trên trang chủ & Giá trị vote tăng thêm 1 đơn vị & Như mong đợi & Pass \\
+\hline
+2 & Downvote bài viết & Downvote ở thẻ bài viết trên trang chủ & Giá trị vote giảm đi 1 đơn vị & Như mong đợi & Pass \\
+\hline
+3 & Chuyển từ upvote sang downvote & Thực hiện upvote rồi downvote ở thẻ bài viết trên trang chủ & Giá trị vote giảm đi 2 đơn vị & Như mong đợi & Pass \\
+\hline
+4 & Chuyển từ downvote sang upvote & Thực hiện downvote rồi upvote ở thẻ bài viết trên trang chủ & Giá trị vote tăng thêm 2 đơn vị & Như mong đợi & Pass \\
+\hline
+5 & Bỏ vote & Nhấn upvote hoặc downvote lần nữa để bỏ vote & Giá trị vote trở về giá trị ban đầu trước khi vote & Như mong đợi & Pass \\
+\hline
+
+
+
+\end{tabularx}
