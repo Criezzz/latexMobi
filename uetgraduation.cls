@@ -12,7 +12,7 @@
 \RequirePackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2cm,includefoot,footskip=1cm]{geometry}
 \RequirePackage{fontspec}
 \RequirePackage{graphicx}
-\RequirePackage{icomma}
+% \RequirePackage{icomma}
 \RequirePackage{indentfirst}
 \RequirePackage[fontspec-loader]{mathfont}
 \RequirePackage{siunitx}

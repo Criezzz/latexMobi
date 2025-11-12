@@ -1,0 +1,58 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Lấy lại mật khẩu} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\noindent
+Người thực hiện: Nguyễn Văn Cường\\
+Ngày thực hiện: 5/11/2024
+
+\begin{tabularx}{\textwidth}{
+    |>{\centering\arraybackslash}p{0.05\textwidth}|
+    >{\raggedright\arraybackslash}p{0.13\textwidth}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{0.14\textwidth}|
+    >{\raggedright\arraybackslash}p{0.13\textwidth}|
+    >{\centering\arraybackslash}p{0.07\textwidth}|
+}
+    \hline
+    \textbf{STT} & \textbf{Mô tả} & \textbf{Đầu vào} & \textbf{Đầu ra mong muốn} & \textbf{Đầu ra thực tế} & \textbf{Trạng thái} \\
+    \hline
+    \multicolumn{6}{|c|}{Giai đoạn 1: Nhập tài khoản} \\
+    \hline
+    1 & Nhập tên đăng nhập tồn tại & username= ``testusername1'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
+    \hline
+    2 & Nhập email tồn tại & username= ``cuong190105@gmail.com'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
+    \hline
+    3 & Nhập tài khoản không tồn tại & username= ``testpassword'' & Thông báo tài khoản không tồn tại & Thông báo User not found & Failed \\
+    \hline
+    4 & Bỏ trống tài khoản & username & Nút Gửi OTP bị vô hiệu hóa & Nút gửi OTP không bấm được & Pass \\
+    \hline
+    5 & gửi yêu cầu khôi phục một tại khoản nhiều hơn 1 lần/phút & username= ``testusername1'' & Thông báo yêu cầu quá nhanh & Thông báo yêu cầu quá nhanh & Pass \\
+    \hline
+    \multicolumn{6}{|c|}{Giai đoạn 2: Nhập OTP} \\
+    \hline
+    6 & Nhập sai OTP & OTP= ``000000'' & Thông báo sai OTP & Thông báo sai OTP & Pass \\
+    \hline
+    7 & Gửi lại OTP &  & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Pass \\
+    \hline
+    8 & Nhập đúng OTP & OTP= ``330478'' & Vô hiệu hóa ô nhập OTP, hiển thị ô nhập mật khẩu mới & Vô hiệu hóa ô nhập OTP, hiển thị ô nhập mật khẩu mới & Pass \\
+    \hline
+    \multicolumn{6}{|c|}{Giai đoạn 3: Nhập mật khẩu mới} \\
+    \hline
+    9 & Nhập mật khẩu ngắn & \makecell[tl]{password=``abc'',\\password\_confirmation=\\``abc''} & Thông báo mật khẩu ít nhất 8 kí tự & Thông báo mật khẩu ít nhất 6 kí tự & Failed \\
+    \hline
+    10 & Nhập mật khẩu hợp lệ, xác nhận không khớp & \makecell[tl]{password=``testusername1'',\\password\_confirmation=\\``abc''} & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
+    \hline
+    11 & Nhập mật khẩu hợp lệ, xác nhận khớp & \makecell[tl]{password=``testusername1'',\\password\_confirmation=\\''testusername1''} & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Pass \\
+    \hline
+\end{tabularx}

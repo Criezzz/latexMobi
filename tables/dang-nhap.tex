@@ -1,0 +1,45 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Đăng nhập} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\noindent
+Người thực hiện: Nguyễn Văn Cường\\
+Ngày thực hiện: 5/11/2024
+
+\begin{tabularx}{\textwidth}{
+    |>{\centering\arraybackslash}p{0.05\textwidth}|
+    >{\raggedright\arraybackslash}p{0.13\textwidth}|
+    >{\raggedright\arraybackslash}X|
+    >{\raggedright\arraybackslash}p{0.14\textwidth}|
+    >{\raggedright\arraybackslash}p{0.13\textwidth}|
+    >{\centering\arraybackslash}p{0.07\textwidth}|
+}
+    \hline
+    \textbf{STT} & \textbf{Mô tả} & \textbf{Đầu vào} & \textbf{Đầu ra mong muốn} & \textbf{Đầu ra thực tế} & \textbf{Trạng thái} \\
+    \hline
+    1 & Nhập tài khoản và mật khẩu chính xác &
+    \makecell[tl]{username = ``testusername1'' \\ password = ``testusername1''} &
+    Đăng nhập thành công, chuyển sang giao diện trang chủ &
+    Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
+    \hline
+    2 & Nhập email và mật khẩu chính xác & \makecell[tl]{username = ``cuong190105\\@gmail.com'' \\ password = ``testusername1''} & Đăng nhập thành công, chuyển sang giao diện trang chủ & Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
+    \hline
+    3 & Nhập tài khoản không tồn tại & \makecell[tl]{username = ``abctusername1'' \\ password = ``asdfghjkl''} & Thông báo tài khoản không tồn tại & Thông báo tài khoản không tồn tại & Pass \\
+    \hline
+    4 & Nhập tài khoản hợp lệ và mật khẩu sai & \makecell[tl]{username = ``testusername1'' \\ password = ``testusername2''} & Thông báo sai mật khẩu & Thông báo sai mật khẩu & Pass \\
+    \hline
+    5 & Bỏ trống tài khoản & \makecell[tl]{username = ``'' \\ password = ``testusername1''} & Nút đăng nhập bị vô hiệu hóa & Nút đăng nhập không bấm được & Pass \\
+    \hline
+    6 & Bỏ trống mật khẩu & \makecell[tl]{username = ``testusername1'' \\ password = ``''} & Nút đăng nhập bị vô hiệu hóa & Nút đăng nhập không bấm được & Pass \\
+    \hline
+\end{tabularx}

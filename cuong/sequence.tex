@@ -1,0 +1,39 @@
+%! TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Ca sử dụng: Tạo bài viết}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{seq_upload post.png}
+    \caption{Biểu đồ tuần tự Tạo bài viết}
+    \label{fig:seq1}
+\end{figure}
+
+Biểu đồ \ref{fig:seq1} trên mô tả trình tự các sự kiện, luồng điều khiển và dữ liệu trong hệ thống cho ca sử dụng tạo bài viết. Ứng dụng có các cơ chế kiểm tra các miền dữ liệu và tệp đính kèm từ bên phía khách, đảm bảo tất cả phải hợp lệ trước khi gửi. Tuy nhiên phía máy chủ vẫn có các kiểm tra tính hợp lệ của bài viết trước khi lưu thông qua các phương thức mà thư viện FastAPI cung cấp, cùng với phương thức \lstinline|validateFile| để kiểm tra tệp tin. Điều này giúp tránh các yêu cầu trái phép không xuất phát từ ứng dụng. Sau khi kiểm tra, hệ thống tiến hành lưu lại tệp tin vào kho dữ liệu. Các tệp được đổi tên để dễ sắp xếp theo thứ tự thời gian, và kèm theo một mã độc nhất để tránh trùng lặp khi nhiều tệp được xử lí vào cùng một mốc thời gian. Sau đó, hệ thống sẽ tạo các bản ghi cho tệp đính kèm để quản lí kèm bài viết, rồi lưu cùng với bài viết vào CSDL. Cuối cùng, ID của bài viết mới được gửi về máy khách, để máy khách sau đó thực hiện ca sử dụng xem bài viết cho bài đăng mới.
+
+\subsection{Ca sử dụng: Xem bài viết}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{seq_view post.png}
+    \caption{Biểu đồ tuần tự Xem bài viết}
+    \label{fig:seq2}
+\end{figure}
+
+Biểu đồ \ref{fig:seq2} cho thấy quá trình hoạt động và luồng dữ liệu trong ca sử dụng xem bài viết. Phía khách gửi một yêu cầu lấy thông tin cho bài viết có mã số tương ứng. Hệ thống khi này sẽ giao tiếp với CSDL để lấy bản ghi cho bài viết đó và tạo đối tượng \lstinline|Post| để chứa thông tin bài viết. Đối tượng này có thể nhận giá trị None nếu không tìm thấy bản ghi đang được yêu cầu. Trong trường hợp bài viết không tồn tại do bị xóa, hệ thống sẽ trả về phản hồi với mã trạng thái 404 thông báo rằng bài viết không tồn tại. Nếu bài viết tồn tại, hệ thống sẽ tiến hành lấy các bản ghi tệp đính kèm (nếu có) của bài viết, thêm một số thông tin như trạng thái bình chọn của người dùng cho bài viết, rồi đóng gói lại thành một đối tượng \lstinline|OutputPost| và trả về cho phía khách. Sau khi khách nhận được bài viết, nếu bài viết có ảnh, khách sẽ tiến hành tải ảnh thông qua API. Tiếp đến, khách tải về một số bình luận cho bài viết đó, các bình luận sẽ được tải từ từ theo hành động cuộn màn hình của người dùng. Cuối cùng phía khách thiết lập kết nối tới máy chủ để nhận SSE, và cập nhật lại giao diện khi có sự kiện mới như số bình chọn của bài viết hoặc bình luận thay đổi, hay có bình luận mới.
+
+\subsection{Ca sử dụng: Tạo bình luận}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{seq_cmt.png}
+    \caption{Biểu đồ tuần tự Tạo bình luận}
+    \label{fig:seq3}
+\end{figure}
+
+Biểu đồ \ref{fig:seq3} cho thấy thứ tự hoạt động của hệ thống trong ca sử dụng tạo bình luận. Người dùng tiến hành gửi bình luận khi đang xem một bài viết. Bình luận này có thể cho bài viết, hoặc là phản hồi của một bình luận khác. Khi nhận được yêu cầu gửi bình luận, hệ thống sẽ kiểm tra xem bài viết còn tồn tại hay bị xóa. Nội dung bình luận sẽ chỉ được xử lí khi bài viết tồn tại, nếu không sẽ báo lỗi 404. Tiếp theo, hệ thống xem xét bình luận này có đang phản hồi bình luận khác của bài viết không, nếu có thì bình luận được phản hồi cũng phải tồn tại hoặc sẽ báo lỗi 404. Sau khi qua hết các kiểm tra, hệ thống sẽ ghi nhận bình luận, đồng thời gửi thông báo tới người chủ bài viết nếu không phản hồi ai, hoặc tới chủ bình luận nếu đang phản hồi bình luận. Cuối cùng hệ thống trả về \lstinline|comment_id| của bình luận mới, và phía khách tiến hành cập nhật giao diện để hiển thị bình luận mới cho người dùng.
+
+\end{document}

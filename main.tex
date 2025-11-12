@@ -16,6 +16,9 @@
 \urlstyle{same} 
 \usepackage{unicode-math}
 \setmathfont{Cambria Math}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{subfiles}
 \begin{document}
 
 \studentname{23020122 -- Phùng Hải Nam}
@@ -146,25 +149,42 @@ Trình bày kết quả kiểm thử hệ thống
 
 \section{Biểu đồ ca sử dụng hệ thống EnglishForum}
 
+\subfile{cuong/usecase.tex}
+
 \section{Mô tả ca sử dụng}
 \subsection{Ca sử dụng \textit{Tạo bài viết}}
 \subsection{Ca sử dụng \textit{Xem bài viết}}
 \subsection{Ca sử dụng \textit{Bình luận bài viết}}
 \section{Biểu đồ hoạt động}
-\subsection{Ca sử dụng \textit{Tạo bài viết}}
-\subsection{Ca sử dụng \textit{Xem bài viết}}
-\subsection{Ca sử dụng \textit{Bình luận bài viết}}
+
+\subfile{cuong/activity.tex}
+
 \chapter{Thiết kế hệ thống}
 \section{Thiết kế mức cao}
 \section{Biểu đồ tuần tự}
+
+\subfile{cuong/sequence.tex}
+
+\section{Thiết kế cơ sở dữ liệu}
+
+\subfile{cuong/db.tex}
+
+\chapter{Cài đặt và thử nghiệm}
+
 \section{Test}
 
 % Các bảng kiểm thử tách riêng theo chức năng
 \subsection{Đăng ký tài khoản}
-% Nội dung bảng nằm ở tables/dang-ky-tai-khoan.tex
+% Nội dung bảng nằm ở tables/dang-ky.tex
+\input{tables/dang-ky}
 
 \subsection{Đăng nhập tài khoản}
-% Nội dung bảng nằm ở tables/dang-nhap-tai-khoan.tex
+% Nội dung bảng nằm ở tables/dang-nhap.tex
+\input{tables/dang-nhap}
+
+\subsection{Lấy lại mật khẩu}
+% Nội dung bảng nằm ở tables/lay-lai-mat-khau.tex
+\input{tables/lay-lai-mat-khau}
 
 \subsection{Tạo bài viết}
 % Nội dung bảng nằm ở tables/tao-bai-viet.tex
