@@ -1,0 +1,176 @@
+% !TEX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsection{Ca sử dụng: \textit{Tạo bài viết}}
+
+\textbf{Mô tả:} Người dùng thực hiện đăng tải một bài viết mới lên hệ thống
+
+\noindent
+\textbf{Tác nhân:} Người dùng.
+
+\noindent
+\textbf{Điều kiện kích hoạt:} Tác nhân chọn nút "Tạo bài viết" trên thanh điều hướng.
+
+\noindent
+\textbf{Tiền điều kiện:} Thiết bị có kết nối internet.
+
+\noindent
+\textbf{Hậu điều kiện:} Bài viết được tạo thành công và hiển thị trên giao diện.
+
+\noindent
+\textbf{Các luồng sự kiện:}
+
+\noindent
+\textit{Luồng cơ bản:}
+
+\begin{enumerate}[label=B\arabic{*}.]
+    \item Người dùng chọn "Tạo bài viết".
+    \item Hệ thống hiển thị một thẻ tạo bài viết, yêu cầu người dùng chọn chủ đề.
+    \item Người dùng chọn một chủ đề, rồi bấm tiếp theo.
+    \item Hệ thống hiển thị biểu mẫu gồm tiêu đề và nội dung bài viết. 
+    \item Người dùng nhập nội dung vào các trường rồi bấm tiếp theo.
+    \item Hệ thống hiển thị giao diện chọn ảnh.
+    \item Người dùng chọn ảnh hoặc không, rồi bấm tiếp theo.
+    \item Hệ thống hiện thị bài viết dưới dạng xem trước.
+    \item Người dùng đọc lại bài viết, rồi nhấn xác nhận.
+    \item Hệ thống ghi nhận bài viết và hiển thị trên giao diện.
+\end{enumerate}
+
+\noindent
+\textit{Luồng thay thế:} Không
+
+\noindent
+\textit{Luồng ngoại lệ:}
+
+\begin{itemize}[label=]
+  \item Tại bước chọn ảnh: Hệ thống báo lỗi nếu người dùng chọn ảnh quá lớn
+\end{itemize}
+
+\noindent
+\textbf{Quy tắc nghiệp vụ:}
+
+\begin{enumerate}[label=BR\arabic{*}.]
+  \item Một bài viết cần có đủ chủ đề, tiêu đề và nội dung. Nút tiếp theo sẽ bị vô hiệu hóa nếu thiếu thông tin.
+  \item Tiêu đề chứa tối đa 255 kí tự.
+  \item Việc thêm ảnh là tùy chọn.
+  \item Mỗi bài viết có tối đa 5 ảnh đính kèm, mỗi ảnh có dung lượng tối đa 5MB.
+\end{enumerate}
+
+\noindent
+\textbf{Điểm mở rộng:} Không
+
+\subsection{Ca sử dụng: \textit{Xem bài viết}}
+
+\textbf{Mô tả:} Người dùng thực hiện xem một bài viết cùng các bình luận của nó trên diễn đàn.
+
+\noindent
+\textbf{Tác nhân:} Người dùng.
+
+\noindent
+\textbf{Điều kiện kích hoạt:} Tác nhân chọn một thẻ bài viết trên các giao diện ``Trang chủ", ``Hồ sơ", hay ``Tìm kiếm".
+
+\noindent
+\textbf{Tiền điều kiện:} Thiết bị có kết nối internet.
+
+\noindent
+\textbf{Hậu điều kiện:} Không
+
+\noindent
+\textbf{Các luồng sự kiện:}
+
+\noindent
+\textit{Luồng cơ bản:}
+
+\begin{enumerate}[label=B\arabic{*}.]
+    \item Người dùng chọn một thẻ bài viết.
+    \item Hệ thống kiểm tra bài viết còn tồn tại.
+    \item Hệ thống tải thông tin bài viết, ảnh, dữ liệu bình luận của bài viết.
+    \item Hệ thống hiển thị biểu mẫu gồm tiêu đề và nội dung bài viết. 
+    \item Hệ thống hiển thị bài viết cho người dùng.
+    \item Hệ thống khởi tạo trình nghe sự kiện mới cho bài viết.
+\end{enumerate}
+
+\noindent
+\textit{Luồng thay thế:} Không
+
+\noindent
+\textit{Luồng ngoại lệ:}
+
+\begin{itemize}[label=]
+  \item Tại bước chọn kiểm tra bài viết: Báo lỗi nếu bài viết bị xóa, rồi kết thúc.
+\end{itemize}
+
+\noindent
+\textbf{Quy tắc nghiệp vụ:} Không
+
+\noindent
+\textbf{Điểm mở rộng:}
+
+\begin{itemize}[label=]
+  \item Tại bước hiển thị bài viết: Hệ thống hiển thị ô bình luận để thực hiện ca sử dụng bình luận.
+  \item Tại bước hiển thị bài viết: Hệ thống hiển thị ô đánh giá bài viết để thực hiện ca sử dụng đánh giá bài viết.
+  \item Tại bước hiển thị bài viết: Hệ thống hiển thị ô đánh giá ở mỗi bình luận để thực hiện ca sử dụng đánh giá bình luận.
+\end{itemize}
+
+\subsection{Ca sử dụng: \textit{Bình luận bài viết}}
+
+\textbf{Mô tả:} Người dùng thực hiện đăng tải một bình luận mới cho bài viết trên hệ thống.
+
+\noindent
+\textbf{Tác nhân:} Người dùng.
+
+\noindent
+\textbf{Điều kiện kích hoạt:} Tác nhân nhập bình luận vào ô bình luận rồi nhấn gửi bình luận.
+
+\noindent
+\textbf{Tiền điều kiện:} Thiết bị có kết nối internet.
+
+\noindent
+\textbf{Hậu điều kiện:} Một bình luận mới được tạo trên hệ thống.
+
+\noindent
+\textbf{Các luồng sự kiện:}
+
+\noindent
+\textit{Luồng cơ bản:}
+
+\begin{enumerate}[label=B\arabic{*}.]
+    \item Người dùng chọn ô bình luận và nhập bình luận.
+    \item Người dùng chọn gửi bình luận.
+    \item Hệ thống kiểm tra bài viết có tồn tại.
+    \item Hệ thống kiểm tra bình luận này đang phản hồi bình luận khác.
+    \item Hệ thống kiểm tra bình luận đang được phản hồi có tồn tại. 
+    \item Hệ thống lưu lại bình luận.
+    \item Hệ thống thông báo cho chủ bình luận được phản hồi.
+    \item Hệ thống gửi sự kiện mới đến những người đang theo dõi bài viết.
+    \item Hệ thống hiển thị bình luận cho người dùng.
+\end{enumerate}
+
+\noindent
+\textit{Luồng thay thế:}
+
+\begin{enumerate}[label=B\arabic{*}.]
+    \item Ở bước đầu tiên, người dùng chọn nút phản hồi ở một bình luận để chuyển sang phản hồi.
+    \item Ở bước đầu tiên, nếu người dùng đang phản hồi, bấm tắt thẻ thông báo đang phản hồi để chuyển về bình luận thông thường.
+    \item Ở bước hệ thống kiểm tra việc phản hồi, nếu không phải phản hồi hệ thống chuyển ngay tới bước lưu bình luận
+    \item Ở bước gửi thông báo, nếu bình luận được lưu không phản hồi bình luận khác, hệ thống gửi thông báo cho chủ bài viết.
+\end{enumerate}
+
+\noindent
+\textit{Luồng ngoại lệ:}
+
+\begin{itemize}[label=]
+  \item Tại bước kiểm tra bài viết: Hệ thống báo lỗi nếu bài viết không tồn tại và kết thúc.
+  \item Tại bước kiểm tra phản hồi tồn tại: Hệ thống báo lỗi nếu phản hồi không tồn tại và kết thúc.
+\end{itemize}
+
+\noindent
+\textbf{Quy tắc nghiệp vụ:}
+\begin{enumerate}[label=BR\arabic{*}.]
+  \item Bình luận không được để trống. Nút gửi bình luận bị vô hiệu hóa nếu ô bình luận trống.
+\end{enumerate}
+
+\noindent
+\textbf{Điểm mở rộng:} Không
+
+\end{document}
