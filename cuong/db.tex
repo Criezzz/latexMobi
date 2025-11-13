@@ -9,6 +9,13 @@
     \label{fig:db}
 \end{figure}
 
-Một chút mô tả CSDL.
+Biểu đồ trên cho thấy kiến trúc tổng quan của cơ sở dữ liệu cho hệ thống. Nó bao gồm 12 bảng, trong đó có các bảng hỗ trợ xác minh và bảo mật, các bảng phụ trợ, và các bảng cho nghiệp vụ chính.
+Trung tâm của hệ thống diễn đàn là người dùng, được quản lý trong bảng \texttt{users}. Bảng này lưu trữ thông tin cá nhân của người dùng như tên đăng nhập, địa chỉ email, tiểu sử và đường dẫn đến ảnh đại diện của họ trong kho dữ liệu.
+Các bảng khác đều liên kết đến bảng này thông qua trường \texttt{user\_id} hoặc \texttt{username} để xác định người dùng tương ứng.
+Các thông tin bảo mật và xác minh người dùng bao gồm mật khẩu, mã OTP xác minh, các token đăng nhập hoặc chỉnh sửa email được lưu trong các bảng tương ứng.
+Các bảng \texttt{posts} và \texttt{comments} quản lý nội dung do người dùng tạo ra, bao gồm bài viết và bình luận. Các bài viết có thể đi theo các tệp đính kèm được quản lý trong bảng \texttt{attachments}. Bảng này tham chiếu đến bảng \texttt{posts} thông qua trường \texttt{post\_id}, lưu trữ các thông tin cơ bản về tên tệp, loại tệp, và thứ tự của chúng trong bài viết.
+Bảng \texttt{post\_votes} và \texttt{comment\_votes} lần lượt lưu trữ bình chọn của người dùng cho bài viết và bình luận. Các lựa chọn có  thể là ủng hộ, phản đối, hoặc không bình chọn gì.
+Ngoài ra còn có bảng \texttt{activities} để ghi lại các hoạt động của người dùng, nhằm phục vụ cho hoạt động thông báo trong hệ thống. Các thông báo được tạo ra sẽ được lưu lại trong bảng \texttt{notifications}.
+Hệ thống thực hiện xóa mềm các bản ghi, nhằm giúp người dùng khôi phục lại nếu cần thiết, và chỉ xóa vĩnh viến định kì vào khung giờ thấp điểm để không ảnh hưởng tới hiệu năng. Vì thế một số bảng sử dụng trường \texttt{is\_deleted}, \texttt{is\_token\_used}, \texttt{is\_revoked} để đánh dấu trạng thái xóa
 
 \end{document}
