@@ -38,26 +38,26 @@
 
     \multicolumn{6}{|c|}{Giai đoạn 1: Nhập thông tin đăng kí} \\
     \hline
-    1 & Nhập email, tài khoản và mật khẩu và xác nhận mật khẩu hợp lệ & username= ``\seqsplit{testusername2}'', email= ``\seqsplit{projectaccnt001@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Pass \\
-    \hline
-    2 & Nhập email đã tồn tại & username= ``\seqsplit{testusername3}'', email= ``\seqsplit{projectaccnt001@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
-    \hline
-    3 & Nhập tên tài khoản đã tồn tại & username= ``\seqsplit{testusername2}'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
-    \hline
-    4 & Nhập tài khoản dưới 8 kí tự & username= ``test2'', email= ``\seqsplit{projectaccnt002,gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test02'' & Thông báo tên tài khoản phải ít nhất 8 kí tự & Thông báo tên tài khoản phải ít nhất 8 kí tự & Pass \\
-    \hline
-    5 & Nhập tài khoản hợp lệ, email không đúng định dạng & username= ``test0002'', email= ``\seqsplit{projectaccnt002,gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test03'' & Thông báo email phải đúng định dạng & Thông báo email phải đúng định dạng & Pass \\
-    \hline
-    6 & Nhập tài khoản và email hợp lệ, mật khẩu dưới 8 kí tự & username= ``test0002'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test04'' & Thông báo mật khẩu phải ít nhất 8 kí tự & Hiển thị JSON string báo lỗi từ server & Failed \\
-    \hline
-    7 & Các thông tin hợp lệ, xác nhận mật khẩu không giống mật khẩu & username= ``test2'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``test0002'', \seqsplit{password\_confirmation}= ''test0005'' & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
-    \hline
-    \multicolumn{6}{|c|}{Giai đoạn 2: Nhập OTP xác minh} \\
-    \hline
-    8 & Nhập sai OTP & OTP = 000000 & Thông báo sai OTP & Thông báo sai OTP & Pass \\
-    \hline
-    9 & Gửi lại OTP & & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Pass \\
-    \hline
-    10 & Nhập đúng OTP & OTP = 293641 & Xác minh thành công, chuyển đến trang chủ & Xác minh thành công, chuyển đến trang chủ & Pass \\
-    \hline
+        1 & Nhập email, tài khoản và mật khẩu và xác nhận mật khẩu hợp lệ & username= ``\seqsplit{testusername2}'', email= ``\seqsplit{projectaccnt001@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Pass \\
+        \hline
+        2 & Nhập email đã tồn tại & username= ``\seqsplit{testusername3}'', email= ``\seqsplit{projectaccnt001@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
+        \hline
+        3 & Nhập tên tài khoản đã tồn tại & username= ``\seqsplit{testusername2}'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
+        \hline
+        4 & Nhập tài khoản dưới 8 kí tự & username= ``test2'', email= ``\seqsplit{projectaccnt002,gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test02'' & Thông báo tên tài khoản phải ít nhất 8 kí tự & Thông báo tên tài khoản phải ít nhất 8 kí tự & Pass \\
+        \hline
+        5 & Nhập tài khoản hợp lệ, email không đúng định dạng & username= ``test0002'', email= ``\seqsplit{projectaccnt002,gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test03'' & Thông báo email phải đúng định dạng & Thông báo email phải đúng định dạng & Pass \\
+        \hline
+        6 & Nhập tài khoản và email hợp lệ, mật khẩu dưới 8 kí tự & username= ``test0002'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test04'' & Thông báo mật khẩu phải ít nhất 8 kí tự & Hiển thị JSON string báo lỗi từ server & Failed \\
+        \hline
+        7 & Các thông tin hợp lệ, xác nhận mật khẩu không giống mật khẩu & username= ``test2'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``test0002'', \seqsplit{password\_confirmation}= ''test0005'' & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
+        \hline
+        \multicolumn{6}{|c|}{Giai đoạn 2: Nhập OTP xác minh} \\
+        \hline
+        8 & Nhập sai OTP & OTP = 000000 & Thông báo sai OTP & Thông báo sai OTP & Pass \\
+        \hline
+        9 & Gửi lại OTP & & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Pass \\
+        \hline
+        10 & Nhập đúng OTP & OTP = 293641 & Xác minh thành công, chuyển đến trang chủ & Xác minh thành công, chuyển đến trang chủ & Pass \\
+        \hline
 \end{tabularx}
