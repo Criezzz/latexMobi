@@ -12,36 +12,45 @@
 \renewcommand{\arraystretch}{1.25}
 \setlength{\arrayrulewidth}{1pt}
 
-\noindent
-Người thực hiện: Nguyễn Văn Cường\\
-Ngày thực hiện: 5/11/2024
-
-\begin{tabularx}{\textwidth}{
-    |>{\centering\arraybackslash}p{0.05\textwidth}|
-    >{\raggedright\arraybackslash}p{0.13\textwidth}|
-    >{\raggedright\arraybackslash}X|
-    >{\raggedright\arraybackslash}p{0.14\textwidth}|
-    >{\raggedright\arraybackslash}p{0.13\textwidth}|
-    >{\centering\arraybackslash}p{0.07\textwidth}|
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
 }
-    \hline
-    \textbf{STT} & \textbf{Mô tả} & \textbf{Đầu vào} & \textbf{Đầu ra mong muốn} & \textbf{Đầu ra thực tế} & \textbf{Trạng thái} \\
-    \hline
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện: 5/11/2024\\ Người thực hiện: Nguyễn Văn Cường}}\\
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endfirsthead
+
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
+
     \multicolumn{6}{|c|}{Giai đoạn 1: Nhập thông tin đăng kí} \\
     \hline
-    1 & Nhập email, tài khoản và mật khẩu và xác nhận mật khẩu hợp lệ & \makecell[tl]{username= ``testusername2'',\\email= ``projectaccnt001\\@gmail.com'',\\password= ``testusername2'',\\password\_confirmation=\\''testusername2''} & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Pass \\
+    1 & Nhập email, tài khoản và mật khẩu và xác nhận mật khẩu hợp lệ & username= ``\seqsplit{testusername2}'', email= ``\seqsplit{projectaccnt001@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Đăng kí thành công, chuyển sang giao diện nhập OTP xác minh & Pass \\
     \hline
-    2 & Nhập email đã tồn tại & \makecell[tl]{username= ``testusername3'',\\email= ``projectaccnt001\\@gmail.com'',\\password= ``testusername2'',\\password\_confirmation=\\''testusername2''} & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
+    2 & Nhập email đã tồn tại & username= ``\seqsplit{testusername3}'', email= ``\seqsplit{projectaccnt001@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
     \hline
-    3 & Nhập tên tài khoản đã tồn tại & \makecell[tl]{username= ``testusername2'',\\email= ``projectaccnt002\\@gmail.com'',\\password= ``testusername2'',\\password\_confirmation=\\''testusername2''} & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
+    3 & Nhập tên tài khoản đã tồn tại & username= ``\seqsplit{testusername2}'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``\seqsplit{testusername2}'', \seqsplit{password\_confirmation}= ``\seqsplit{testusername2}'' & Thông báo tài khoản đã tồn tại & Thông báo tài khoản đã tồn tại & Pass \\
     \hline
-    4 & Nhập tài khoản dưới 8 kí tự & \makecell[tl]{username= ``test2'',\\email= ``projectaccnt002\\,gmail.com'',\\password= ``test002'',\\password\_confirmation=\\''test02''} & Thông báo tên tài khoản phải ít nhất 8 kí tự & Thông báo tên tài khoản phải ít nhất 8 kí tự & Pass \\
+    4 & Nhập tài khoản dưới 8 kí tự & username= ``test2'', email= ``\seqsplit{projectaccnt002,gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test02'' & Thông báo tên tài khoản phải ít nhất 8 kí tự & Thông báo tên tài khoản phải ít nhất 8 kí tự & Pass \\
     \hline
-    5 & Nhập tài khoản hợp lệ, email không đúng định dạng & \makecell[tl]{username= ``test0002'',\\email= ``projectaccnt002\\,gmail.com'',\\password= ``test002'',\\password\_confirmation=\\''test03''} & Thông báo email phải đúng định dạng & Thông báo email phải đúng định dạng & Pass \\
+    5 & Nhập tài khoản hợp lệ, email không đúng định dạng & username= ``test0002'', email= ``\seqsplit{projectaccnt002,gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test03'' & Thông báo email phải đúng định dạng & Thông báo email phải đúng định dạng & Pass \\
     \hline
-    6 & Nhập tài khoản và email hợp lệ, mật khẩu dưới 8 kí tự & \makecell[tl]{username= ``test0002'',\\email= ``projectaccnt002\\@gmail.com'',\\password= ``test002'',\\password\_confirmation=\\''test04''} & Thông báo mật khẩu phải ít nhất 8 kí tự & Hiển thị JSON string báo lỗi từ server & Failed \\
+    6 & Nhập tài khoản và email hợp lệ, mật khẩu dưới 8 kí tự & username= ``test0002'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``test002'', \seqsplit{password\_confirmation}= ''test04'' & Thông báo mật khẩu phải ít nhất 8 kí tự & Hiển thị JSON string báo lỗi từ server & Failed \\
     \hline
-    7 & Các thông tin hợp lệ, xác nhận mật khẩu không giống mật khẩu & \makecell[tl]{username= ``test2'',\\email= ``projectaccnt002\\@gmail.com'',\\password= ``test0002'',\\password\_confirmation=\\''test0005''} & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
+    7 & Các thông tin hợp lệ, xác nhận mật khẩu không giống mật khẩu & username= ``test2'', email= ``\seqsplit{projectaccnt002@gmail.com}'', password= ``test0002'', \seqsplit{password\_confirmation}= ''test0005'' & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
     \hline
     \multicolumn{6}{|c|}{Giai đoạn 2: Nhập OTP xác minh} \\
     \hline

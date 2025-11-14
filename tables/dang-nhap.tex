@@ -12,34 +12,41 @@
 \renewcommand{\arraystretch}{1.25}
 \setlength{\arrayrulewidth}{1pt}
 
-\noindent
-Người thực hiện: Nguyễn Văn Cường\\
-Ngày thực hiện: 5/11/2024
-
-\begin{tabularx}{\textwidth}{
-    |>{\centering\arraybackslash}p{0.05\textwidth}|
-    >{\raggedright\arraybackslash}p{0.13\textwidth}|
-    >{\raggedright\arraybackslash}X|
-    >{\raggedright\arraybackslash}p{0.14\textwidth}|
-    >{\raggedright\arraybackslash}p{0.13\textwidth}|
-    >{\centering\arraybackslash}p{0.07\textwidth}|
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
 }
     \hline
-    \textbf{STT} & \textbf{Mô tả} & \textbf{Đầu vào} & \textbf{Đầu ra mong muốn} & \textbf{Đầu ra thực tế} & \textbf{Trạng thái} \\
+    \multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện:\\ Người thực hiện:}}\\
     \hline
-    1 & Nhập tài khoản và mật khẩu chính xác &
-    \makecell[tl]{username = ``testusername1'' \\ password = ``testusername1''} &
-    Đăng nhập thành công, chuyển sang giao diện trang chủ &
+    \multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+    \cline{4-5}
+     &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+    \hline
+    \endfirsthead
+
+    \hline
+    \multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+    \cline{4-5}
+     &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+    \hline
+    \endhead
+
+    1 & Nhập tài khoản và mật khẩu chính xác & username= ``\seqsplit{testusername1}'', password = ``\seqsplit{testusername1}'' & Đăng nhập thành công, chuyển sang giao diện trang chủ &
     Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
     \hline
-    2 & Nhập email và mật khẩu chính xác & \makecell[tl]{username = ``cuong190105\\@gmail.com'' \\ password = ``testusername1''} & Đăng nhập thành công, chuyển sang giao diện trang chủ & Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
+    2 & Nhập email và mật khẩu chính xác & username= ``\seqsplit{cuong190105@gmail.com}'', password= ``\seqsplit{testusername1}'' & Đăng nhập thành công, chuyển sang giao diện trang chủ & Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
     \hline
-    3 & Nhập tài khoản không tồn tại & \makecell[tl]{username = ``abctusername1'' \\ password = ``asdfghjkl''} & Thông báo tài khoản không tồn tại & Thông báo tài khoản không tồn tại & Pass \\
+    3 & Nhập tài khoản không tồn tại & username= ``\seqsplit{abctusername1}'', password= ``asdfghjkl'' & Thông báo tài khoản không tồn tại & Thông báo tài khoản không tồn tại & Pass \\
     \hline
-    4 & Nhập tài khoản hợp lệ và mật khẩu sai & \makecell[tl]{username = ``testusername1'' \\ password = ``testusername2''} & Thông báo sai mật khẩu & Thông báo sai mật khẩu & Pass \\
+    4 & Nhập tài khoản hợp lệ và mật khẩu sai & username= ``\seqsplit{testusername1}'', password = ``\seqsplit{testusername2}'' & Thông báo sai mật khẩu & Thông báo sai mật khẩu & Pass \\
     \hline
-    5 & Bỏ trống tài khoản & \makecell[tl]{username = ``'' \\ password = ``testusername1''} & Nút đăng nhập bị vô hiệu hóa & Nút đăng nhập không bấm được & Pass \\
+    5 & Bỏ trống tài khoản & username= ``'', password= ``\seqsplit{testusername1}'' & Nút đăng nhập bị vô hiệu hóa & Nút đăng nhập không bấm được & Pass \\
     \hline
-    6 & Bỏ trống mật khẩu & \makecell[tl]{username = ``testusername1'' \\ password = ``''} & Nút đăng nhập bị vô hiệu hóa & Nút đăng nhập không bấm được & Pass \\
+    6 & Bỏ trống mật khẩu & username= ``\seqsplit{testusername1}'', password = ``'' & Nút đăng nhập bị vô hiệu hóa & Nút đăng nhập không bấm được & Pass \\
     \hline
 \end{tabularx}

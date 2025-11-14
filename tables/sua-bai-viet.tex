@@ -21,17 +21,24 @@
   >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
-\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện:\\ Người thực hiện:}}\\
 \hline
-
-\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
 \cline{4-5}
- &  &  & Expected Output & Actual Output & \\
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
 \hline
+\endfirsthead
 
-1 & Sửa hợp lệ thêm ảnh & Title = ``Learning English – v2”, Body = ``Here are some tips - v2'', Tag đổi thành ``Hướng dẫn'', thêm 1 ảnh mới hợp lệ & Chỉnh sửa thành công, hiển thị snackbar ``Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết đã được cập nhật đúng nội dung mới & Như mong đợi & Pass \\
 \hline
-2 & Sửa hợp lệ nhưng mất kết nối & Title = ``Learning English – v3”, Body = ``Here are some tips - v3'', tag và ảnh giữ nguyên & Hiển thị snackbar báo lỗi ``Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại mạng''. & Như mong đợi & Pass \\
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
+
+1 & Sửa hợp lệ thêm ảnh & Title = ``Learning English – v2'', Body = ``Here are some tips - v2'', Tag đổi thành ``Hướng dẫn'', thêm 1 ảnh mới hợp lệ & Chỉnh sửa thành công, hiển thị snackbar ``Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết đã được cập nhật đúng nội dung mới & Như mong đợi & Pass \\
+\hline
+2 & Sửa hợp lệ nhưng mất kết nối & Title = ``Learning English – v3'', Body = ``Here are some tips - v3'', tag và ảnh giữ nguyên & Hiển thị snackbar báo lỗi ``Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại mạng''. & Như mong đợi & Pass \\
 \hline
 3 & Không thay đổi gì & Giữ nguyên title, body, tag, ảnh & Nhấn ``Lưu thay đổi'' vẫn hiển thị snackbar ``Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết & Như mong đợi & Pass \\
 \hline
@@ -39,11 +46,11 @@
 \hline
 5 & Sửa nhưng bỏ trống body & Giữ nguyên title, tag, ảnh nhưng bỏ trống body & Nút lưu thay đổi bị vô hiệu hóa & Như mong đợi & Pass \\
 \hline
-6 & Sửa hợp lệ xóa ảnh & Giữ nguyên title, body, tag nhưng xóa ảnh & Hiển thị snackbar ''Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết đã được cập nhật đúng nội dung mới (mất ảnh) & Như mong đợi & Pass \\
+6 & Sửa hợp lệ xóa ảnh & Giữ nguyên title, body, tag nhưng xóa ảnh & Hiển thị snackbar ``Đã cập nhật bài viết'' và điều hướng về màn hình chi tiết bài viết đã được cập nhật đúng nội dung mới (mất ảnh) & Như mong đợi & Pass \\
 \hline
-7 & Hủy chỉnh sửa & Title = ``Learning English – v4”, Body = ``Here are some tips - v4'', Tag = ``Hướng dẫn'', thêm 1 ảnh mới hợp lệ. Nhấn nút quay trở lại thay vì ``Lưu thay đổi'' & Bài viết không bị chỉnh sửa. Điều hướng về màn hình trước đó & Như mong đợi & Pass \\
+7 & Hủy chỉnh sửa & Title = ``Learning English – v4'', Body = ``Here are some tips - v4'', Tag = ``Hướng dẫn'', thêm 1 ảnh mới hợp lệ. Nhấn nút quay trở lại thay vì ``Lưu thay đổi'' & Bài viết không bị chỉnh sửa. Điều hướng về màn hình trước đó & Như mong đợi & Pass \\
 \hline
-8 & Sửa hợp lệ nhưng title chỉ nhập khoảng trắng & Title = ``  '', Body =``Here are some tips - v4''”, Tag = ``Hướng dẫn'', ảnh giữ nguyên & Nút ``Lưu thay đổi'' bị vô hiệu hóa & Như mong đợi & Pass \\
+8 & Sửa hợp lệ nhưng title chỉ nhập khoảng trắng & Title = ``  '', Body =``Here are some tips - v4'', Tag = ``Hướng dẫn'', ảnh giữ nguyên & Nút ``Lưu thay đổi'' bị vô hiệu hóa & Như mong đợi & Pass \\
 \hline
 9 & Sửa hợp lệ nhưng body chỉ nhập khoảng trắng & Title = ``Learning English – v4'', Body = ``  '', Tag = ``Hướng dẫn'', ảnh giữ nguyên & Nút ``Lưu thay đổi'' bị vô hiệu hóa & Như mong đợi & Pass \\
 \hline
@@ -57,7 +64,7 @@
 13 & Ảnh quá dung lượng & Thêm ảnh hợp lệ nhưng kích thước >5MB & Hiện cảnh báo ``Kích thước ảnh phải \le 5MB'' và không thêm ảnh & Như mong đợi & Pass \\
 \hline
 
-14 & Bài viết đã bị xoá trước khi lưu & Tester thực hiện sửa bài viết nhưng từ thiết bị khác xoá bài, quay lại thiết bị 1 bấm "Lưu thay đổi" & Hiển thị snackbar "Không tìm thấy bài viết" & Như mong đợi & Pass \\
+14 & Bài viết đã bị xoá trước khi lưu & Tester thực hiện sửa bài viết nhưng từ thiết bị khác xoá bài, quay lại thiết bị 1 bấm ``Lưu thay đổi'' & Hiển thị snackbar ``Không tìm thấy bài viết'' & Như mong đợi & Pass \\
 \hline
 
 \end{tabularx}

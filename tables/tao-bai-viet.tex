@@ -21,15 +21,22 @@
   >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
-\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện:\\ Người thực hiện:}}\\
 \hline
-
-\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
 \cline{4-5}
- &  &  & Expected Output & Actual Output & \\
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
 \hline
+\endfirsthead
 
-1 & Tạo bài viết hợp lệ (đầy đủ thông tin) & Title = ``Learning English'', Body = ``Here are some tips...'', Tag = ''Hỏi đáp'', không có ảnh & Bài viết được tạo thành công, hiển thị snackbar ``Đăng bài thành công'' và điều hướng tới bài viết vừa được tạo & Như mong đợi & Pass \\
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
+
+1 & Tạo bài viết hợp lệ (đầy đủ thông tin) & Title = ``Learning English'', Body = ``Here are some tips...'', Tag = ``Hỏi đáp'', không có ảnh & Bài viết được tạo thành công, hiển thị snackbar ``Đăng bài thành công'' và điều hướng tới bài viết vừa được tạo & Như mong đợi & Pass \\
 \hline
 2 & Không nhập tiêu đề & Title = ``'', Body = ``This is content.'', Tag = ``Hỏi đáp'' & Nút ``Tiếp tục'' bị ẩn đi & Như mong đợi & Pass \\
 \hline

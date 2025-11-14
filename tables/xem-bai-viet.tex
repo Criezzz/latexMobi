@@ -21,13 +21,20 @@
   >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
-\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\multicolumn{3}{|c|}{} &\multicolumn{3}{c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện:\\ Người thực hiện:}}\\
 \hline
-
-\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
 \cline{4-5}
- &  &  & Expected Output & Actual Output & \\
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
 \hline
+\endfirsthead
+
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
 
 1 & Xem một bài viết hợp lệ có 1 ảnh & Bài viết có title, body, tag, có 1 ảnh &  Điều hướng đến màn hình bài viết chi tiết, bao gồm ảnh đại diện và tên tác giả, thời gian đăng tương đối, tag, title, body, ảnh, bộ đếm vote và bình luận & Như mong đợi & Pass \\
 \hline
@@ -39,7 +46,7 @@
 \hline
 5 & Kéo xuống để làm mới & Bài viết có title, body, tag, có 1 ảnh. Chủ bài viết thay đổi title trước khi tester thực hiện thao tác kéo xuống & Hiển thị biểu tượng làm mới, nội dụng bài viết được cập nhật đúng với thay đổi & Như mong đợi & Pass \\
 \hline
-6 & Xem bài viết đã bị xóa & Bài viết có title, body, tag, có 1 ảnh. Chủ bài viết xóa bài viết trong khi tester đang xem chi tiết bài viết và thực hiện thao tác kéo xuống làm mới & Hiển thị snackbar "Không tìm thấy bài viết" & Như mong đợi & Pass \\
+6 & Xem bài viết đã bị xóa & Bài viết có title, body, tag, có 1 ảnh. Chủ bài viết xóa bài viết trong khi tester đang xem chi tiết bài viết và thực hiện thao tác kéo xuống làm mới & Hiển thị snackbar ``Không tìm thấy bài viết'' & Như mong đợi & Pass \\
 \hline 
 7 & Xem một bài viết hợp lệ khi không có kết nối mạng & Bài viết có title, body, tag, có 1 ảnh. Tắt kết nối mạng. & Hiển thị biểu tượng tải bài viết ở giữa màn hình. & Như mong đợi & Pass \\
 \hline

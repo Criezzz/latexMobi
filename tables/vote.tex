@@ -21,25 +21,44 @@
   >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
-\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\makecell[l]{Execute Date:\\ Tester:}}\\
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện:\\ Người thực hiện:}}\\
 \hline
-
-\multirow{2}{*}{ID} & \multicolumn{1}{|c|}{\multirow{2}{*}{Description}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Input}} & \multicolumn{2}{c|}{Output} & \multirow{2}{*}{Test status}\\
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
 \cline{4-5}
- &  &  & Expected Output & Actual Output & \\
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
 \hline
+\endfirsthead
+
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
 
 1 & Upvote bài viết & Upvote ở thẻ bài viết trên trang chủ & Giá trị vote tăng thêm 1 đơn vị & Như mong đợi & Pass \\
 \hline
 2 & Downvote bài viết & Downvote ở thẻ bài viết trên trang chủ & Giá trị vote giảm đi 1 đơn vị & Như mong đợi & Pass \\
 \hline
-3 & Chuyển từ upvote sang downvote & Thực hiện upvote rồi downvote ở thẻ bài viết trên trang chủ & Giá trị vote giảm đi 2 đơn vị & Như mong đợi & Pass \\
+3 & Chuyển từ upvote sang downvote ở bài viết & Thực hiện upvote rồi downvote ở thẻ bài viết trên trang chủ & Giá trị vote giảm đi 2 đơn vị & Như mong đợi & Pass \\
 \hline
-4 & Chuyển từ downvote sang upvote & Thực hiện downvote rồi upvote ở thẻ bài viết trên trang chủ & Giá trị vote tăng thêm 2 đơn vị & Như mong đợi & Pass \\
+4 & Chuyển từ downvote sang upvote ở bài viết & Thực hiện downvote rồi upvote ở thẻ bài viết trên trang chủ & Giá trị vote tăng thêm 2 đơn vị & Như mong đợi & Pass \\
 \hline
-5 & Bỏ vote & Nhấn upvote hoặc downvote lần nữa để bỏ vote & Giá trị vote trở về giá trị ban đầu trước khi vote & Như mong đợi & Pass \\
+5 & Bỏ vote bài viết & Nhấn upvote hoặc downvote lần nữa để bỏ vote & Giá trị vote trở về giá trị ban đầu trước khi vote & Như mong đợi & Pass \\
 \hline
-6 & Mất kết & Nhấn upvote hoặc downvote khi mất kết nối mạng & Có snackbar báo lỗi kết nối, giá trị vote không đổi & Như mong đợi & Pass \\
+6 & Mất kết nối mạng ở bài viết & Nhấn upvote hoặc downvote bài viết khi mất kết nối mạng & Có snackbar báo lỗi kết nối, giá trị vote không đổi & Như mong đợi & Pass \\
+\hline
+7 & Upvote bình luận & Upvote ở thẻ bình luận trên bài viết & Giá trị vote tăng thêm 1 đơn vị & Như mong đợi & Pass \\
+\hline
+8 & Downvote bình luận & Downvote ở thẻ bình luận trên bài viết & Giá trị vote giảm đi 1 đơn vị & Như mong đợi & Pass \\
+\hline
+9 & Chuyển từ upvote sang downvote ở bình luận & Thực hiện upvote rồi downvote ở thẻ bình luận trên bài viết & Giá trị vote giảm đi 2 đơn vị & Như mong đợi & Pass \\
+\hline
+10 & Chuyển từ downvote sang upvote ở bình luận & Thực hiện downvote rồi upvote ở thẻ bình luận trên bài viết & Giá trị vote tăng thêm 2 đơn vị & Như mong đợi & Pass \\
+\hline
+11 & Bỏ vote bình luận & Nhấn upvote hoặc downvote lần nữa để bỏ vote ở thẻ bình luận trên bài viết & Giá trị vote trở về giá trị ban đầu trước khi vote & Như mong đợi & Pass \\
+\hline
+12 & Mất kết nối mạng ở bình luận & Nhấn upvote hoặc downvote bình luận khi mất kết nối mạng & Có snackbar báo lỗi kết nối, giá trị vote không đổi & Như mong đợi & Pass \\
 \hline
 
 

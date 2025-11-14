@@ -4,7 +4,7 @@
 {\makeatletter
  \refstepcounter{a@table} % tăng số bảng
  \def\@captype{a@table} % đặt loại caption là bảng
- \def\@captiontext{\centering Bảng kiểm thử: Xóa bài viết} % nội dung caption
+ \def\@captiontext{\centering Bảng kiểm thử: Xem thông báo} % nội dung caption
  \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
 \makeatother}
 
@@ -36,16 +36,17 @@
 \hline
 \endhead
 
-1 & Xóa bài viết hợp lệ & Tạo một bài viết thực hiện xóa bài viết bằng tùy chọn trên giao diện xem chi tiết bài viết & Có thông báo xác nhận xóa và bài viết được xóa không hiển thị trên diễn đàn sau khi xác nhận & Như mong đợi & Pass \\
+1 & Nhận thông báo cảm xúc & Tester khác bày tỏ cảm xúc bài viết & Thông báo mới xuất hiện ở mục thông báo. Số lượng thông báo chưa đọc tăng lên 1. & Như mong đợi & Pass \\
 \hline
-2 & Hủy xóa bài viết & Tạo một bài viết thực hiện xóa bài viết bằng tùy chọn trên giao diện. Hủy xóa. & Có thông báo xác nhận xóa, bài viết vẫn hiển thị trên diễn đàn sau khi nhấn hủy & Như mong đợi & Pass \\
+2 & Nhận thông báo bình luận & Tester khác bình luận bài viết & Thông báo mới xuất hiện ở mục thông báo. Số lượng thông báo chưa đọc tăng lên 1. & Như mong đợi & Pass \\
 \hline
-3 & Không phải chủ bài viết & Xóa bài viết do người khác đăng & Không có tùy chọn xóa bài viết và không xóa được bài viết & Như mong đợi & Pass \\
+
+3 & Đọc thông báo & Chọn 1 thông báo về bình luận & Chuyển hướng tới bài viết đó. Số lượng thông báo chưa đọc giảm đi 1. & Như mong đợi & Pass \\
 \hline
-4 & Mất kết nối mạng & Ngắt kết nối mạng trước khi nhấn xác nhận xóa & Hiển thị thông báo ``Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại mạng'' và không xóa được bài viết & Như mong đợi & Pass \\
+
+4 & Đánh dấu đã đọc tất cả & Nhấn nút "Đánh dấu tất cả là đã đọc" & Tất cả thông báo được đánh dấu là đã đọc. Số lượng thông báo chưa đọc giảm về 0. & Như mong đợi & Pass \\
 \hline
-5 & Bài viết bị xóa ở nơi khác & Sử dụng 2 thiết bị cùng vào 1 bài viết để xóa lần lượt & Bài viết bị xóa khỏi diễn đàn ở thiết bị 1, còn thiết bị 2 hiển thị snackbar ``Không tìm thấy bài viết'' khi xác nhận xóa & Như mong đợi & Pass \\
-\hline
+
 
 
 

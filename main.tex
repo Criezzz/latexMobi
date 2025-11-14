@@ -13,7 +13,8 @@
 \usepackage{multirow}
 \usepackage[hidelinks]{hyperref} 
 \usepackage{xurl}
-\urlstyle{same} 
+\urlstyle{same}
+\usepackage{seqsplit}
 \usepackage{unicode-math}
 \setmathfont{Cambria Math}
 \usepackage{caption}
@@ -176,8 +177,11 @@ Trình bày kết quả kiểm thử hệ thống
 \subfile{cuong/db.tex}
 
 \chapter{Cài đặt và thử nghiệm}
+\section{Giao diện hệ thống}
 
-\section{Test}
+\section{Chức năng AI}
+
+\section{Kiểm thử hệ thống}
 
 % Các bảng kiểm thử tách riêng theo chức năng
 \subsection{Đăng ký tài khoản}
@@ -207,6 +211,21 @@ Trình bày kết quả kiểm thử hệ thống
 \subsection{Xóa bài viết}
 % Nội dung bảng nằm ở tables/xoa-bai-viet.tex
 \input{tables/xoa-bai-viet}
+
+\subsection{Vote}
+% Nội dung bảng nằm ở tables/vote.tex
+\input{tables/vote}
+\subsection{Xem thông báo}
+% Nội dung bảng nằm ở tables/xem-thong-bao.tex
+\input{tables/xem-thong-bao}
+\subsection{Tìm kiếm}
+% Nội dung bảng nằm ở tables/tim-kiem.tex
+\input{tables/tim-kiem.tex}
+
+\section{Đánh giá độ phủ}
+
+
+
 
 % Tài liệu tham khảo 
 %Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 

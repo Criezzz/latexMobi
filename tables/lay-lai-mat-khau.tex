@@ -12,32 +12,41 @@
 \renewcommand{\arraystretch}{1.25}
 \setlength{\arrayrulewidth}{1pt}
 
-\noindent
-Người thực hiện: Nguyễn Văn Cường\\
-Ngày thực hiện: 5/11/2024
-
-\begin{tabularx}{\textwidth}{
-    |>{\centering\arraybackslash}p{0.05\textwidth}|
-    >{\raggedright\arraybackslash}p{0.13\textwidth}|
-    >{\raggedright\arraybackslash}X|
-    >{\raggedright\arraybackslash}p{0.14\textwidth}|
-    >{\raggedright\arraybackslash}p{0.13\textwidth}|
-    >{\centering\arraybackslash}p{0.07\textwidth}|
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
 }
-    \hline
-    \textbf{STT} & \textbf{Mô tả} & \textbf{Đầu vào} & \textbf{Đầu ra mong muốn} & \textbf{Đầu ra thực tế} & \textbf{Trạng thái} \\
-    \hline
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện: 5/11/2024\\ Người thực hiện: Nguyễn Văn Cường}}\\
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endfirsthead
+
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
+
     \multicolumn{6}{|c|}{Giai đoạn 1: Nhập tài khoản} \\
     \hline
-    1 & Nhập tên đăng nhập tồn tại & username= ``testusername1'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
+    1 & Nhập tên đăng nhập tồn tại & username= ``\seqsplit{testusername1}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
     \hline
-    2 & Nhập email tồn tại & username= ``cuong190105@gmail.com'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
+    2 & Nhập email tồn tại & username= ``\seqsplit{cuong190105@gmail.com}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
     \hline
-    3 & Nhập tài khoản không tồn tại & username= ``testpassword'' & Thông báo tài khoản không tồn tại & Thông báo User not found & Failed \\
+    3 & Nhập tài khoản không tồn tại & username= ``\seqsplit{testpassword}'' & Thông báo tài khoản không tồn tại & Thông báo User not found & Failed \\
     \hline
     4 & Bỏ trống tài khoản & username & Nút Gửi OTP bị vô hiệu hóa & Nút gửi OTP không bấm được & Pass \\
     \hline
-    5 & gửi yêu cầu khôi phục một tại khoản nhiều hơn 1 lần/phút & username= ``testusername1'' & Thông báo yêu cầu quá nhanh & Thông báo yêu cầu quá nhanh & Pass \\
+    5 & gửi yêu cầu khôi phục một tại khoản nhiều hơn 1 lần/phút & username= ``\seqsplit{testusername1}'' & Thông báo yêu cầu quá nhanh & Thông báo yêu cầu quá nhanh & Pass \\
     \hline
     \multicolumn{6}{|c|}{Giai đoạn 2: Nhập OTP} \\
     \hline
@@ -49,10 +58,10 @@ Ngày thực hiện: 5/11/2024
     \hline
     \multicolumn{6}{|c|}{Giai đoạn 3: Nhập mật khẩu mới} \\
     \hline
-    9 & Nhập mật khẩu ngắn & \makecell[tl]{password=``abc'',\\password\_confirmation=\\``abc''} & Thông báo mật khẩu ít nhất 8 kí tự & Thông báo mật khẩu ít nhất 6 kí tự & Failed \\
+    9 & Nhập mật khẩu ngắn & password= ``abc'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu ít nhất 8 kí tự & Thông báo mật khẩu ít nhất 6 kí tự & Failed \\
     \hline
-    10 & Nhập mật khẩu hợp lệ, xác nhận không khớp & \makecell[tl]{password=``testusername1'',\\password\_confirmation=\\``abc''} & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
+    10 & Nhập mật khẩu hợp lệ, xác nhận không khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
     \hline
-    11 & Nhập mật khẩu hợp lệ, xác nhận khớp & \makecell[tl]{password=``testusername1'',\\password\_confirmation=\\''testusername1''} & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Pass \\
+    11 & Nhập mật khẩu hợp lệ, xác nhận khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ''\seqsplit{testusername1}'' & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Pass \\
     \hline
 \end{tabularx}

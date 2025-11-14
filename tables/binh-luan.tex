@@ -1,0 +1,64 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table} % tăng số bảng
+ \def\@captype{a@table} % đặt loại caption là bảng
+ \def\@captiontext{\centering Bảng kiểm thử: Bình luận} % nội dung caption
+ \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện:\\ Người thực hiện:}}\\
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endfirsthead
+
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+\endhead
+
+1 & Bình luận bài viết & comment = ``Impressive broski'' & Bình luận xuất hiện ở phần bình luận dưới bài viết. Số bình luận của bài viết tăng thêm 1 & Như mong đợi & Pass \\
+\hline
+
+2 & Sửa bình luận & Tester bình luận comment = ``Impressive broski'', sau đó nhấn sửa comment = ``Impressive broski v2'' & Bình luận thay đổi thành nội dung đã nhập. Hiển thị snackbar thông báo thành công. & Như mong đợi & Pass \\
+\hline
+
+3 & Xóa bình luận & Tester bình luận comment = ``Impressive broski'', sau đó nhấn xóa bình luận & Có thông báo xác nhận xóa, bình luận biến mất khỏi phần bình luận dưới bài viết. Hiển thị snackbar thông báo thành công. Số bình luận của bài viết giảm đi 1 & Như mong đợi & Pass \\
+\hline
+
+4 & Sửa bình luận khi mất kết nối mạng & Tester bình luận comment = ``Impressive broski'', ngắt kết nối mạng sau đó nhấn sửa comment = ``Impressive broski v2'' & Hiển thị snackbar báo lỗi kết nối, bình luận không thay đổi & Như mong đợi & Pass \\
+\hline
+5 & Xóa bình luận khi mất kết nối mạng & Tester bình luận comment = ``Impressive broski'', ngắt kết nối mạng sau đó nhấn xóa bình luận & Hiển thị snackbar báo lỗi kết nối, bình luận không thay đổi & Như mong đợi & Pass \\
+\hline
+6 & Bình luận bài viết khi mất kết nối mạng & comment = ``Impressive broski'' & Hiển thị snackbar báo lỗi kết nối, bình luận không xuất hiện ở phần bình luận dưới bài viết. Số bình luận của bài viết không thay đổi & Như mong đợi & Pass \\
+\hline
+7 & Phản hồi bình luận & reply = ``reply test'' & Phản hồi xuất hiện ở dưới bình luận được chọn để phản hồi & Như mong đợi & Pass \\
+\hline
+8 & Phản hồi bình luận khi mất kết nối mạng & reply = ``reply test'' & Hiển thị snackbar báo lỗi kết nối, phản hồi không xuất hiện ở phần bình luận dưới bài viết. Số phản hồi của bình luận không thay đổi & Như mong đợi & Pass \\
+\hline
+9 & Phản hồi trống & reply = ``'' & Nút gửi bị ẩn đi & Như mong đợi & Pass \\
+\hline
+10 & Bình luận trống & comment = ``'' & Nút gửi bị ẩn đi & Như mong đợi & Pass \\
+\hline
+
+
+\end{tabularx}
