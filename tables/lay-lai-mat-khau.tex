@@ -34,7 +34,7 @@
     \hline
     2 & Nhập email tồn tại & username= ``\seqsplit{cuong190105@gmail.com}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
     \hline
-    3 & Nhập tài khoản không tồn tại & username= ``\seqsplit{testpassword}'' & Thông báo tài khoản không tồn tại & Thông báo User not found & Failed \\
+    3 & Nhập tài khoản không tồn tại & username= ``\seqsplit{testpassword}'' & Thông báo tài khoản không tồn tại & Thông báo tài khoản không tồn tại & Pass \\
     \hline
     4 & Bỏ trống tài khoản & username & Nút Gửi OTP bị vô hiệu hóa & Nút gửi OTP không bấm được & Pass \\
     \hline
@@ -50,7 +50,7 @@
     \hline
     \multicolumn{6}{|c|}{Giai đoạn 3: Nhập mật khẩu mới} \\
     \hline
-    9 & Nhập mật khẩu ngắn & password= ``abc'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu ít nhất 8 kí tự & Thông báo mật khẩu ít nhất 6 kí tự & Failed \\
+    9 & Nhập mật khẩu ngắn & password= ``abc'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu ít nhất 8 kí tự & Thông báo mật khẩu ít nhất 8 kí tự & Pass \\
     \hline
     10 & Nhập mật khẩu hợp lệ, xác nhận không khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
     \hline

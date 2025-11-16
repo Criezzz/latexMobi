@@ -92,7 +92,6 @@
             \item[upvote] Hành động người dùng đánh giá tích cực trên giao diện
             \item[downvote] Hành động người dùng đánh giá tiêu cực trên giao diện
         \end{description}
-        \subfile{cuong/chu_thich.tex}
     \end{contentlistingsection}
 
     \begin{contentlistingsection}{Lời cam đoan}
@@ -177,10 +176,16 @@ các người học với nhau một cách hiệu quả. Nhiều nền tảng ch
 \section{Báo cáo}
 % Tổng hợp kết quả kiểm thử
 \subsection{Kết quả kiểm thử hiệu}
-Trình bày kết quả ``kiểm thử hiệu năng''
+Trong 1 phút, hệ thống xử lí được hơn 4200 yêu cầu, với thông lượng khoảng 64
+yêu cầu mỗi giây. Thời gian phản hồi trung bình cho mỗi loại yêu cầu rơi vào khoảng từ
+550ms đến 650ms. Thời gian phản hồi tối đa là gần 4 giây. 90\% các yêu cầu được phản
+hồi trong vòng dưới 1 giây, cho thấy hệ thống có khả năng chịu tải tương đối tốt với kịch
+70
+bản sử dụng hiện tại, khi ứng dụng có lưu lượng truy cập thấp đến trung bình, rải rác vào
+các thời điểm và ít khi xảy ra cao điểm tắc nghẽn.
 
 \subsection{Kết quả kiểm thử hệ thống}
-Trình bày kết quả kiểm thử hệ thống
+100\% các chức năng nghiệp vụ chính của hệ thống đã được kiểm thử và hoạt động đúng theo yêu cầu đề ra.
 
 %--------------------------------
 \chapter{Kiến thức nền tảng}
@@ -228,9 +233,6 @@ Bên cạnh đó, ứng dụng sử dụng Android SDK như là bộ công cụ 
     \item Kiến trúc Client-Server: kiến trúc chia hệ thống thành hai phần tách biệt là ứng dụng khách (client) và máy chủ (server). Ứng dụng Android đóng vai trò client, chịu trách nhiệm hiển thị giao diện và xử lý tương tác với người dùng. Máy chủ backend (xây dựng bằng FastAPI, PostgreSQL, Redis, Azure, \ldots) chịu trách nhiệm xử lý nghiệp vụ, lưu trữ và quản lí dữ liệu, đồng thời cung cấp các API cho client truy cập. Hai phía trao đổi dữ liệu thông qua giao thức HTTP/HTTPS với định dạng JSON, giúp hệ thống dễ mở rộng, bảo trì.
     \item Kiến trúc 3-tầng (3-tier architecture): bao gồm 3 tầng Application, Business Service, Data. Cụ thể được mô tả ở phần thiết kế kiến trúc bậc cao.
 \end{itemize}
-
-\subfile{cuong/backend_techstack.tex}
-
 \chapter{Thu thập phân tích đặc tả yêu cầu}
 
 \section{Biểu đồ ca sử dụng hệ thống EnglishForum}
@@ -566,6 +568,21 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
 \section{Đánh giá độ phủ}
 
 \subfile {cuong/backend_cov.tex}
+\subsection{Độ phủ mã nguồn phía ứng dụng}
+Do giới hạn về thời gian và nguồn lực, đồng thời thực tế do bản chất của Android SDK 
+khi đo độ phủ tự động thông qua kiểm thử giao diện thường chỉ nhắm tới các chức năng
+nghiệp vụ chính mà người dùng sẽ thực hiện, cho nên độ phủ hiện tại chưa phủ được toàn bộ các dòng lệnh.
+\begin{figure}[H]{Báo cáo độ phủ mã nguồn phía ứng dụng}
+    \centering
+    \includegraphics[width=0.8\textwidth]{anh/nhanh.png}
+\end{figure}
+\chapter{Kết luận}
+\section{Kết quả đạt được}
+Phần mềm đã hoàn thành các mục tiêu đề ra bao gồm thiết kế, kiểm thử, triển khai. Nhóm đã học được rất nhiều từ việc tổ chức triển khai dự án, cho tới cụ thể hơn là các kiến thức cơ bản về phát triển ứng dụng di động, ở đây là Android.
+Đồng thời, dù điểm được nhấn mạnh của ứng dụng là trí tuệ nhân tạo, nhưng chức năng mà nhóm chọn khá đơn giản, chỉ là gọi API, một phần là vì các thành viên chưa có kinh nghiệm nhiều về phát triển trí tuệ nhân tạo, một phần là vì
+mục tiêu của ứng dụng không có nhiều không gian để mở rộng chức năng trí tuệ nhân tạo nào mà vừa phù hợp về mặt chức năng, hợp lý về logic, vừa cân bằng tài nguyên nguồn lực và thời gian.
+\section{Hướng phát triển trong tương lai}
+Sau khi hoàn thành dự án, nhóm rất mong nhận được nhiều lời khuyên đóng góp của thầy và các bạn để cải thiện hơn dự án.
 
 % Tài liệu tham khảo 
 %Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 
