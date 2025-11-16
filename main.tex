@@ -92,6 +92,7 @@
             \item[upvote] Hành động người dùng đánh giá tích cực trên giao diện
             \item[downvote] Hành động người dùng đánh giá tiêu cực trên giao diện
         \end{description}
+        \subfile{cuong/chu_thich.tex}
     \end{contentlistingsection}
 
     \begin{contentlistingsection}{Lời cam đoan}
@@ -227,6 +228,9 @@ Bên cạnh đó, ứng dụng sử dụng Android SDK như là bộ công cụ 
     \item Kiến trúc Client-Server: kiến trúc chia hệ thống thành hai phần tách biệt là ứng dụng khách (client) và máy chủ (server). Ứng dụng Android đóng vai trò client, chịu trách nhiệm hiển thị giao diện và xử lý tương tác với người dùng. Máy chủ backend (xây dựng bằng FastAPI, PostgreSQL, Redis, Azure, \ldots) chịu trách nhiệm xử lý nghiệp vụ, lưu trữ và quản lí dữ liệu, đồng thời cung cấp các API cho client truy cập. Hai phía trao đổi dữ liệu thông qua giao thức HTTP/HTTPS với định dạng JSON, giúp hệ thống dễ mở rộng, bảo trì.
     \item Kiến trúc 3-tầng (3-tier architecture): bao gồm 3 tầng Application, Business Service, Data. Cụ thể được mô tả ở phần thiết kế kiến trúc bậc cao.
 \end{itemize}
+
+\subfile{cuong/backend_techstack.tex}
+
 \chapter{Thu thập phân tích đặc tả yêu cầu}
 
 \section{Biểu đồ ca sử dụng hệ thống EnglishForum}
@@ -555,7 +559,13 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
 \input{tables/tao-bai-tap}
 
 
+\section{Đánh giá hiệu năng}
+
+\subfile {cuong/loadtest.tex}
+
 \section{Đánh giá độ phủ}
+
+\subfile {cuong/backend_cov.tex}
 
 % Tài liệu tham khảo 
 %Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 
