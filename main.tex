@@ -2,6 +2,17 @@
 % !TEX options = -lualatex
 
 \documentclass{uetgraduation}
+\makeatletter
+\@ifundefined{description}{%
+    \newcommand\descriptionlabel[1]{\hspace\labelsep\normalfont\bfseries #1}%
+    \newenvironment{description}{%
+        \list{}{%
+            \labelwidth\z@ \itemindent-\leftmargin
+            \let\makelabel\descriptionlabel
+        }%
+    }{\endlist}%
+}{}
+\makeatother
 \usepackage{enumitem}
 % Bảng kiểm thử: màu nền header, tabularx, đường kẻ dày/mảnh, ô đa dòng
 \usepackage{tabularx}
@@ -20,6 +31,18 @@
 \usepackage{caption}
 \usepackage{listings}
 \usepackage{subfiles}
+
+% Ký hiệu toán học cho các chỉ số đánh giá AI (đặt ở preamble để dùng ở mọi nơi)
+% similarScore (trước đây semanticScore): Độ tương đồng ngữ nghĩa
+% distractorDiversity: Độ đa dạng phương án nhiễu
+% semantic_score (trước đây itemScore): Điểm tổng hợp
+\newcommand{\similarScore}{\ensuremath{S_{\text{sim}}}} % similar score (was semanticScore)
+\newcommand{\distractorDiversity}{\ensuremath{D_{\text{dist}}}} % distractor diversity
+% Giữ alias cũ để tránh lỗi nếu còn sót \semanticScore
+\let\semanticScore\similarScore
+% semantic_score hiển thị dạng chữ thường với gạch dưới
+\newcommand{\semanticScoreTotal}{\ensuremath{\mathrm{semantic\_score}}}
+
 \begin{document}
 
 \studentname{23020122 -- Phùng Hải Nam}
@@ -113,10 +136,7 @@ mặc dù đã có nhiều trang trao đổi các vấn
   nội địa như 2channel\cite{2chan} ở Nhật Bản hay Dcard\cite{Dcard} ở Đài Loan, việc xây 
   dựng một diễn đàn trên di động chuyên
   biệt cho việc trao đổi và học tập tiếng anh được đánh giá là một phương án
-   khả thi.
-   Nền tảng này sẽ cung cấp môi trường tương tác, kết 
-   nối người học với nhau, giúp họ chia sẻ kiến thức,
-    kinh nghiệm và hỗ trợ lẫn nhau trong quá trình học tập.
+   khả thi. Nền tảng này sẽ cung cấp môi trường tương tác, kết nối người học với nhau, giúp họ chia sẻ kiến thức, kinh nghiệm và hỗ trợ lẫn nhau trong quá trình học tập.
 %--------------------------------
 \section{Các giải pháp đã có}
 
@@ -159,15 +179,17 @@ Trình bày kết quả kiểm thử hệ thống
 \section{Mô tả ca sử dụng}
 
 \subfile{cuong/uc_desc.tex}
-% \subsection{Ca sử dụng \textit{Tạo bài viết}}
-% \subsection{Ca sử dụng \textit{Xem bài viết}}
-% \subsection{Ca sử dụng \textit{Bình luận bài viết}}
+
 \section{Biểu đồ hoạt động}
 
 \subfile{cuong/activity.tex}
 
 \chapter{Thiết kế hệ thống}
+
+\noindent Đây là phần mở đầu chương 4 (Thiết kế hệ thống). 
+
 \section{Thiết kế mức cao}
+
 \section{Biểu đồ tuần tự}
 
 \subfile{cuong/sequence.tex}
@@ -178,8 +200,129 @@ Trình bày kết quả kiểm thử hệ thống
 
 \chapter{Cài đặt và thử nghiệm}
 \section{Giao diện hệ thống}
+\subsection{Màn hình đăng nhập}
+
+
 
 \section{Chức năng AI}
+\subsection{Mô tả ngắn gọn}
+Hệ thống có chức năng AI giúp tạo bài tập trắc nghiệm dựa trên chủ đề
+mà AI nhận dạng từ bài viết của người dùng.
+\subsection{Hoạt động}
+Hệ thống sử dụng mô hình ngôn ngữ lớn Gemini Pro 2.5 của Google thông qua API để thực hiện chức năng này.
+Cách hoạt động cơ bản như sau:
+\begin{enumerate}
+    \item Người dùng bắt đầu sử dụng chức năng bằng cách vào một bài viết và nhấn nút thực hiện nghiệp vụ tạo bài tập trắc nghiệm
+    \item Hệ thống gửi nội dung bài viết đến API của Gemini Flash 2.5 để xác định chủ đề (giới hạn trong danh sách các chủ đề đã định nghĩa sẵn).
+    \item Dựa trên chủ đề đã xác định, hệ thống gửi yêu cầu tiếp theo đến API của Gemini Pro 2.5 sử dụng kỹ thuật prompt \textit{Chain of Thoughts} để tạo ra một bộ câu hỏi trắc nghiệm liên quan đến chủ đề đó.
+    \item Bộ câu hỏi trắc nghiệm sẽ được trả về cho hệ thống và hiển thị cho người dùng dưới dạng câu hỏi trắc nghiệm tương tác trực tiếp trên màn hình ứng dụng.
+\end{enumerate}
+\subsection{Đánh giá hiệu quả}
+Chức năng AI sẽ được đánh giá thông qua sự so sánh độ hiệu quả giữa kỹ thuật prompt \textit{Chain of Thoughts} và kỹ thuật prompt thông thường (\textit{Minimal}).\par
+Đầu tiên, chúng tôi tự tạo một tập dữ liệu sử dụng tập dữ liệu RACE (Lai et al., 2017)\cite{RACE} với vai trò cung cấp bài đọc gốc làm
+đầu vào cho hệ thống. Từ mội bài đọc, sử dụng mô hình Gemini Pro 2.5 để tạo ra 10 câu hỏi trắc nghiệm với chủ đề
+đã được gán nhãn chủ đề Tiếng Anh bằng mô hình Gemini Flash 2.5. Tập dữ liệu cuối cùng bao gồm
+60 bài đọc phủ đều 12 chủ đề tiếng anh phổ biến, mỗi bài đọc có 10 câu hỏi trắc nghiệm đi kèm.\par
+Sau đó, chúng tôi thực hiện kiểm thử chức năng AI trên tập dữ liệu này với hai kỹ thuật prompt khác nhau: \textit{Chain of Thoughts} và \textit{Minimal}.
+Mỗi kỹ thuật sẽ được sử dụng để tạo câu hỏi trắc nghiệm từ cùng một bài đọc, thang điểm được đánh giá sẽ dựa trên những tiêu chí sau:
+\begin{itemize}
+    \item Độ tương đồng câu hỏi (\similarScore): mức độ giống về mặt ngữ nghĩa của câu hỏi trắc nghiệm được tạo ra với câu hỏi gốc trong tập dữ liệu. Sử dụng Cosine Similarity để đánh giá.
+    \item Độ đa dạng trả lời sao nhãng (\distractorDiversity): mức độ đa dạng của các phương án nhiễu trong câu hỏi trắc nghiệm, được tính bởi:
+    \begin{equation*}
+        \distractorDiversity
+        = 1 - \frac{1}{|P|}\sum_{(i,j)\in P} \cos\big(v_{i},\, v_{j}\big),\quad
+        P = \{(0,1),\,(0,2),\,(1,2)\}
+    \end{equation*}
+    trong đó $\mathbf v_{i}$ là vector biểu diễn phương án nhiễu thứ $i$ được lấy từ mô hình ngôn ngữ lớn; $\mathbf v_{j}$ là vector biểu diễn phương án nhiễu thứ $j$; P là tập các cặp chỉ số phương án nhiễu.
+    \item Điểm chấm của giám khảo (judge\_score): điểm do giám khảo (ở đây sẽ là LLM) chấm. Có thể nhận giá trị 0; 0.5; 1 tùy theo đánh giá sai, mơ hồ, đúng.
+    \item Điểm tổng hợp (semantic\_score): Điểm tổng hợp ngữ nghĩa của similarScore và distractorDiversity theo công thức:
+    
+    \begin{equation*}
+        \semanticScoreTotal = 0.75\,\similarScore + 0.25\,\distractorDiversity
+    \end{equation*}
+\end{itemize}
+\par
+Chúng tôi đã tiến hành thực nghiệm với mô hình Gemini Flash 2.5 sinh ra kết quả dựa trên tập dữ liệu lần lượt với 2 kỹ thuật 
+prompt \textit{Chain of Thoughts} và \textit{Minimal}. Mỗi 1 đầu vào bài đọc, mô hình sẽ sinh ra 10 câu hỏi trắc nghiệm tương ứng với kỹ thuật đó, 
+sau đó tính toán các tiêu chí đánh giá nêu trên. Sau đó, chúng tôi tổng hợp lại kết quả thu được và trình bày trong các bảng dưới đây.
+\begin{figure}[H]{Biểu đồ so sánh độ trung bình chênh lệch \semanticScoreTotal\ và judge\_score của hai kỹ thuật prompt \textit{Chain of Thoughts} (CoT) và \textit{Minimal}}
+    \centering
+    \includegraphics[width=\textwidth]{anh/paired_overall_bar.png}
+    \label{fig:paired-eval}
+\end{figure}
+
+
+\input{tables/ket-qua-delta}
+
+Dựa vào biểu đồ và bảng số liệu, có thể thấy nếu đặt giả thuyết không (H0)
+là delta = 0, tức là không có chênh lệnh gì giữa CoT và Minimal, thì giả thuyết 
+sẽ bị bác bỏ ở mức 0.95 do khoảng tin cậy của delta đang không bao gồm giá trị 0\cite{hopkin}.
+Quan sát khoảng tin cậy này cũng tương tự như nhận thấy được P value < 0.05\cite{hopkin}.
+Vậy sự chênh lệch của hai kỹ thuật prompt này là có ý nghĩa thống kê.
+\par
+Ta quan sát tới độ chính xác của thống kê.
+\begin{figure}[H]{Biểu đồ sai số biên}
+    \centering
+    \includegraphics[width=\textwidth]{anh/paired_precision_vs_target.png}
+    \label{fig:paired-H-eval}
+\end{figure}
+Với 2 ngưỡng sai số biên H đặt ra là 0.04 và 0.05 như trên biểu đồ, sai số biên của
+cả 2 đều đạt dưới ngưỡng, tức là độ chính xác của thống kê là đạt yêu cầu đề ra.
+\par
+Ta xem xét tới ý nghĩa thực tiễn của chênh lệch này. Mặc dù ý nghĩa thống kê là có,
+nhưng khác biệt về mặt thực tiễn còn phải tùy vào ngữ cảnh và tiêu chuẩn tự đánh giá là 
+có khác biệt ý nghĩa hay không. Quan sát thông số sd (standard deviation - độ lệch chuẩn)
+ta thấy độ semantic\_score dao động với sd 0.05, nên chúng tôi nhận định một chênh lệnh khoảng
+0.02 sẽ có hiệu ứng vừa. Còn judge\_score thì dao động với sd 0.13, nên chênh lệch khoảng
+0.05 sẽ có hiệu ứng vừa. Nói cách khác, 2 ngưỡng trên là ngưỡng khác biệt có thể tạo ra hiệu quả
+nhận ra được về mặt chất lượng (câu hỏi rõ hơn, nhiễu hợp lý hơn, bám sát chủ đề hơn).
+Vậy ta sử dụng ngưỡng này như thế nào ? Quan sát khoảng tin cậy hiện tại,
+chúng tôi thấy đối với semantic\_score, cận dưới nằm dưới ngưỡng (ở mức tầm thường)
+còn cận trên đã vượt ngưỡng (đạt mức quan trọng). Cho nên ta kết luận
+khoảng tin cậy chạy từ khoảng tầm thường đến quan trọng, tức là chưa thể kết luận hiệu ứng là
+"nhỏ và không tồn tại" hay "vừa và có tồn tại"\cite{GRAPHPAD}. Còn với judge\_score cũng tương tự
+như vậy (cận dưới dưới ngưỡng, cận trên vượt ngưỡng). Vậy ta cũng kết luận
+khoảng tin cậy chạy từ tầm thường đến quan trọng, tức là chưa thể kết luận hiệu ứng là
+"nhỏ và không tồn tại" hay "vừa và có tồn tại"\cite{GRAPHPAD}.
+\par
+Tuy nhiên, do giám khảo là một LLM, nên có thể có sự thiên vị nhất định trong việc chấm điểm.
+Vậy nên chúng tôi đã thực hiện thêm một bước đánh giá bổ sung, đó là thêm 1 LLM nữa sử dụng mô hình
+ngôn ngữ lớn Claude Haiku 4.5 của Anthropic để chấm điểm lại toàn bộ câu hỏi trắc nghiệm đã được tạo ra.
+Chúng tôi sẽ dựa trên độ đồng thuận điểm judge\_score giữa hai LLM để đánh giá độ tin cậy của điểm số này.
+\input{tables/ket-qua-agreement.tex}
+\begin{figure}[H]{Biểu đồ độ đồng thuận điểm judge\_score giữa hai LLM Gemini Pro 2.5 và Claude Haiku 4.5}
+    \centering
+    \includegraphics[width=\textwidth]{anh/inter_judge_overall.png}
+    \label{fig:consensus-eval}
+
+\end{figure}
+Biểu đồ trên chúng tôi đã sử dụng 2 chỉ số đó là Kappa của Cohen\cite{kappa} và AC1 của Gwet\cite{ac1} làm chỉ số hiệu chỉnh theo đồng thuận ngẫu nhiên.
+Tuy nhiên, do hiện tượng nghịch lý Kappa (Kappa paradox)\cite{kappaparadox} có thể xảy ra khi các nhãn phân bố không đồng đều. Số lượng nhãn
+trong bài toán của chúng tôi chủ có 3 nhãn (0, 0.5, 1) nhưng phân bố không đồng đều (nhãn 1 chiếm đa số).
+Do đó, chúng tôi ưu tiên sử dụng chỉ số AC1 của Gwet hơn để đánh giá độ đồng thuận giữa hai LLM, Kappa sẽ dùng để tham chiếu.
+Tỉ lệ đồng thuận có khoảng tin cậy hẹp, mức độ đồng thuận khá cao khoảng 74\%.
+Chỉ số AC1 là cao (substantial)\cite{kappatable}.
+\par
+Dựa vào đó, chúng tôi sử dụng cả 2 giám khảo LLM để đánh giá thống kê thêm.
+\begin{figure}[H]{Biểu đồ số lượng chiến thắng được đồng thuận giữa CoT và Minimal}
+    \centering
+    \includegraphics[width=\textwidth]{anh/consensus_counts.png}
+    \label{fig:consensus-wins-eval}
+\end{figure}
+Các chiến thắng đồng thuận tức là chỉ tính những trường hợp cả hai LLM đều đồng ý cho 1 điểm cho kỹ thuật prompt.
+Có thể thấy có có đến 35 cặp so sánh bị loại bỏ do hòa hoặc mô hình chiến thắng là khác nhau (không đồng thuận).
+Vậy nên, do chỉ có 25 cặp so sánh còn lại được dùng, để tránh nhiễu do mẫu nhỏ, khoảng tin cậy Wilson được tính
+và cho thấy thống kê có ý nghĩa ở mức 0.95.\cite{wilson}. Cụ thể, số liệu cho thấy trong
+25 mẫu còn lại, CoT chiến thắng tới 72\%. \par
+Từ các phân tích trên, chúng tôi kết luận rằng kỹ thuật prompt \textit{Chain of Thoughts} có điểm trung bình trên các tiêu
+chí được xét cao hơn, chiến thắng kỹ thuật thông thường nhiều hơn và các thông số đều có ý nghĩa thống kê. Mặc dù khác biệt hiện tại nếu xét về ý nghĩa thực tế chưa thể khẳng định được hiệu quả tạo ra có lớn hay không do nó còn phụ thuộc vào mực độ hiệu ứng được coi là có thể nhận thấy được từ người dùng nữa, tuy nhiên CoT vẫn có xu hướng 
+cải thiện chất lượng đầu ra hơn. Chúng tôi nhận định nếu có thể mở rộng việc đánh giá hiệu năng bằng cách thêm giám khảo là chuyên gia tiếng anh
+để tăng độ tin cậy, tăng thêm sự chặt chẽ cho luật chấm điểm của 2 LLM và tăng kích thước mẫu, đồng thời thậm chí có thể thu thêm dữ liệu từ đánh giá của người dùng để xác định mức ý nghĩa thì có thể sẽ thu được kết quả rõ ràng hơn về mặt ý nghĩa thực tiễn của sự khác biệt này.
+\par 
+Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ thuật prompt \textit{Chain of Thoughts} để triển khai chức năng AI tạo câu hỏi trắc nghiệm với mô hình ngôn ngữ lớn Gemini Flash 2.5 của Google.
+
+
+
 
 \section{Kiểm thử hệ thống}
 
@@ -200,6 +343,7 @@ Trình bày kết quả kiểm thử hệ thống
 % Nội dung bảng nằm ở tables/tao-bai-viet.tex
 \input{tables/tao-bai-viet}
 
+
 \subsection{Xem bài viết}\
 % Nội dung bảng nằm ở tables/xem-bai-viet.tex
 \input{tables/xem-bai-viet}
@@ -211,21 +355,23 @@ Trình bày kết quả kiểm thử hệ thống
 \subsection{Xóa bài viết}
 % Nội dung bảng nằm ở tables/xoa-bai-viet.tex
 \input{tables/xoa-bai-viet}
+\subsection{Bình luận}
+% Nội dung bảng nằm ở tables/binh-luan.tex
+\input{tables/binh-luan}
 
 \subsection{Vote}
 % Nội dung bảng nằm ở tables/vote.tex
 \input{tables/vote}
+
 \subsection{Xem thông báo}
 % Nội dung bảng nằm ở tables/xem-thong-bao.tex
 \input{tables/xem-thong-bao}
+
 \subsection{Tìm kiếm}
 % Nội dung bảng nằm ở tables/tim-kiem.tex
 \input{tables/tim-kiem.tex}
 
 \section{Đánh giá độ phủ}
-
-
-
 
 % Tài liệu tham khảo 
 %Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 
@@ -234,11 +380,14 @@ Trình bày kết quả kiểm thử hệ thống
 %Họ tên tác giả,
 % Tên tài liệu (bài báo, sách, ...),
 % Nguồn (tên tạp chí, tập, số, năm hoặc tên nhà xuất bản), 
+
 %Trang tham khảo
 \begin{thebibliography}{99}
     \begin{bibsection}{Tiếng Việt}
         \bibitem{hehe}
-            hehe, \textit{The Art of hehe}, .
+            hehe, \textit{The Art of hehe},.
+        \bibitem{wilson}
+            Phan Ngọc, Khoảng tin cậy Wilson, \textit{Viblo}, 2018, \url{https://viblo.asia/p/khoang-tin-cay-wilson-XRJ8Rld8VGq}
 
     \end{bibsection}
 
@@ -247,6 +396,22 @@ Trình bày kết quả kiểm thử hệ thống
             ``2channel'', \textit{Wikipedia}, Wikipedia Foundation, 4 October 2025, \url{https://en.wikipedia.org/wiki/2channel}
         \bibitem{Dcard}
             ``Dcard'', \textit{Wikipedia}, Wikipedia Foundation, 29 October 2025, \url{https://en.wikipedia.org/wiki/Dcard}
+        \bibitem{RACE}
+            G. Lai, Q. Xie, H. Liu, Y. Yang, and E. Hovy. RACE: Large-scale ReAding Comprehension Dataset From Examinations. \textit{arXiv preprint} arXiv:1704.04683, 2017. \url{https://arxiv.org/abs/1704.04683}
+        \bibitem{hopkin}
+            W. G. Hopkins, S. W. Marshall, A. M. Batterham, and J. Hanin. Progressive Statistics for Studies in Sports Medicine and Exercise Science. \textit{Med. Sci. Sports Exerc.}, Vol 41, No1, 2009 pp. 5.
+        \bibitem{GRAPHPAD}
+            H. Motulsky. GraphPad Prism v5 Statistics Guide, GraphPad Software Inc., 2007, pp. 35--36.
+        \bibitem{kappa}
+            McHugh, Mary L. “Interrater reliability: the kappa statistic.” Biochemia medica vol. 22,3 (2012): 276-82.
+        \bibitem{ac1}
+            Wongpakaran, N., Wongpakaran, T., Wedding, D. et al. A comparison of Cohen’s Kappa and Gwet’s AC1 when calculating inter-rater reliability coefficients: a study conducted with personality disorder samples. BMC Med Res Methodol 13, 61 (2013), pp. 3.
+        \bibitem{kappaparadox}
+            Wongpakaran, N., Wongpakaran, T., Wedding, D. et al. A comparison of Cohen’s Kappa and Gwet’s AC1 when calculating inter-rater reliability coefficients: a study conducted with personality disorder samples. BMC Med Res Methodol 13, 61 (2013), pp. 2.
+        \bibitem{kappatable}
+
+            Landis, J. Richard, and Gary G. Koch. “The Measurement of Observer Agreement for Categorical Data.” Biometrics, vol. 33, no. 1, 1977, pp. 165. JSTOR, https://doi.org/10.2307/2529310.
+
     \end{bibsection}
 \end{thebibliography}
 

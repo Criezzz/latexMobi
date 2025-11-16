@@ -1,0 +1,19 @@
+% Bảng kết quả các thống kê delta cho hai metric semantic và judge
+% Sử dụng siunitx để canh thẳng hàng các số thập phân.
+\setlength{\arrayrulewidth}{1pt}% độ dày đường kẻ giống các bảng khác
+\begin{table}{Số liệu trung bình chênh lệch (delta) với khoảng tin cậy 95\%}
+    \centering
+    % Căn giữa các số, làm tròn hiển thị đến 4 chữ số thập phân nếu dài hơn
+    \sisetup{table-number-alignment=center, round-mode=places, round-precision=4}
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{|l|S[table-format=1.4]|S[table-format=1.4]|S[table-format=1.4]|S[table-format=1.4]|S[table-format=1.4]|}
+        \hline
+        	\textbf{metric} & \textbf{delta\_mean} & \textbf{delta\_std} & \textbf{delta\_se} & \textbf{delta\_ci95\_low} & \textbf{delta\_ci95\_high} \\
+        \hline
+        semantic & 0.0154 & 0.0562 & 0.0072 & 0.0012 & 0.0296 \\
+        \hline
+        judge    & 0.0392 & 0.1331 & 0.0172 & 0.0055 & 0.0728 \\
+        \hline
+    \end{tabular}
+\end{table}

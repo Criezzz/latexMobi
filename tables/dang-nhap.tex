@@ -2,10 +2,10 @@
 % Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
 % In caption theo style của class `uetgraduation`
 {\makeatletter
- \refstepcounter{a@table} % tăng số bảng
- \def\@captype{a@table} % đặt loại caption là bảng
- \def\@captiontext{\centering Bảng kiểm thử: Đăng nhập} % nội dung caption
- \noindent\attachmentcaption\par\vspace{0.25cm} % in caption và giãn cách
+ \refstepcounter{a@table}
+ \def\@captype{a@table}
+ \def\@captiontext{\centering Bảng kiểm thử: Đăng nhập}
+ \noindent\attachmentcaption\par\vspace{0.25cm}
 \makeatother}
 
 \setlength{\tabcolsep}{5pt}
@@ -27,17 +27,8 @@
     \cline{4-5}
      &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
     \hline
-    \endfirsthead
 
-    \hline
-    \multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
-    \cline{4-5}
-     &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
-    \hline
-    \endhead
-
-    1 & Nhập tài khoản và mật khẩu chính xác & username= ``\seqsplit{testusername1}'', password = ``\seqsplit{testusername1}'' & Đăng nhập thành công, chuyển sang giao diện trang chủ &
-    Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
+    1 & Nhập tài khoản và mật khẩu chính xác & username= ``\seqsplit{testusername1}'', password = ``\seqsplit{testusername1}'' & Đăng nhập thành công, chuyển sang giao diện trang chủ & Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
     \hline
     2 & Nhập email và mật khẩu chính xác & username= ``\seqsplit{cuong190105@gmail.com}'', password= ``\seqsplit{testusername1}'' & Đăng nhập thành công, chuyển sang giao diện trang chủ & Đăng nhập thành công, chuyển sang giao diện trang chủ & Pass \\
     \hline

@@ -1,0 +1,20 @@
+% Bảng kết quả thống kê agreement
+\setlength{\arrayrulewidth}{1pt}% match other tables
+\begin{table}{Số liệu thống kê agreement với khoảng tin cậy 95\%}
+    \centering
+    % Align numbers and round display to 4 decimal places
+    \sisetup{table-number-alignment=center, round-mode=places, round-precision=4}
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\tabcolsep}{4pt}
+
+    \noindent\makebox[\textwidth]{
+    \begin{tabular}{|S[table-format=1.4]|S[table-format=1.4]|S[table-format=1.4]|S[table-format=1.4]|S[table-format=1.4]|}
+        \hline
+    \multicolumn{1}{|c|}{\textbf{percent\_agreement}} & \multicolumn{1}{c|}{\textbf{pa\_ci95\_low}} & \multicolumn{1}{c|}{\textbf{pa\_ci95\_high}} & \multicolumn{1}{c|}{\textbf{kappa}} & \multicolumn{1}{c|}{\textbf{ac1}} \\
+        \hline
+        0.7375 & 0.7119 & 0.7616 & 0.2277 & 0.6849 \\
+        \hline
+    \end{tabular}
+    }
+\end{table}
+
