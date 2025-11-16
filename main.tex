@@ -69,11 +69,20 @@
     \begin{contentlistingsection}{Danh sách thuật ngữ}
         % Thêm các mục thuật ngữ dưới đây theo định dạng \item[Thuật ngữ] Mô tả
         \begin{description}
-            \item[hehe] so hehe
-            \item[snackbar] Thanh thông báo nhỏ xuất hiện ở cạnh dưới màn hình để hiển thị thông báo ngắn gọn về trạng thái hoặc kết quả của một hành động nào đó.
-            \item[vote]
-            \item[upvote]
-            \item[downvote]  
+            \item[AMOLED] Active-Matrix Organic Light-Emitting một công nghệ màn hình điện thoại hiện nay
+            \item[prompt] Đoạn văn bản đầu vào được cung cấp cho mô hình ngôn ngữ lớn đề hướng dẫn nó làm điều gì đó.
+            \item[LLM] Large Language Model -- Mô hình ngôn ngữ lớn, một loại mô hình trí tuệ nhân tạo được huấn luyện trên lượng dữ liệu văn bản khổng lồ để hiểu và sinh ngôn ngữ tự nhiên.
+            \item[server] Phần máy chủ cung cấp dịch vụ, xử lý yêu cầu từ client
+             và quản lý dữ liệu.
+            \item[Client] Phần ứng dụng phía người dùng
+            \item[Backend] Phần máy chủ xử lý logic nghiệp vụ và dữ liệu
+            \item[API] Application Programming Interface -- Giao diện lập trình ứng dụng, tập hợp các định nghĩa và giao thức để xây dựng và tích hợp phần mềm ứng dụng.
+            \item[ORM] Object-Relational Mapping -- Kỹ thuật lập trình để chuyển đổi dữ liệu giữa hệ thống đối tượng và cơ sở dữ liệu quan hệ.
+            \item[SMTP] Simple Mail Transfer Protocol -- Giao thức truyền tải thư đơn giản, một giao thức tiêu chuẩn để gửi email qua Internet.
+            \item[snackbar] Thanh thông báo nhỏ xuất hiện ở cạnh dưới màn hình để hiển thị thông báo ngắn gọn về trạng thái hoặc kết quả của một hành động nào đó. (trên giao diện người dùng)
+            \item[vote] Hành động người dùng thể hiện đánh giá tích cực hoặc tiêu cực, bao gồm upvote và downvote.
+            \item[upvote] Hành động người dùng đánh giá tích cực trên giao diện
+            \item[downvote] Hành động người dùng đánh giá tiêu cực trên giao diện
         \end{description}
     \end{contentlistingsection}
 
@@ -167,19 +176,48 @@ Trình bày kết quả kiểm thử hệ thống
 %--------------------------------
 \chapter{Kiến thức nền tảng}
 \section{Các công nghệ đã được sử dụng}
-\begin{itemize}
-    \item Jetpack Compose: toolkit xây dựng giao diện người dùng cho Android. Khi khởi tạo dự án trong Android Studio, Jetpack Compose được tích hợp sẵn giúp phát triển giao diện nhanh chóng và hiệu quả.
-    \item Kotlin: ngôn ngữ lập trình chính để phát triển ứng dụng Android. Khi khởi tạo dự án, dù Android Studio vẫn hỗ trợ Java, tuy nhiên do Jetpack Compose sử dụng Kotlin compiler để compile, nên Kotlin được nhóm sử dụng làm ngôn ngữ chính luôn.
-    \item Android SDK: bộ cung cụ phát triển phần mềm cho nền tảng Android. Khi khởi tạo dự án, đây là bộ công cụ bắt buộc cần được cài đặt để xây dựng và chạy ứng dụng Android. Nó cung cấp các thư viện, công cụ hỗ trợ chạy máy ảo, xây dựng phần mềm, gỡ lỗi phần mềm.
-    \item Mô hình Gemini Flash 2.5: mô hình ngôn ngữ lớn (Large Language Model - LLM) tiên  tiến do Google phát triển.
-    \item Mô hình Gemini Pro 2.5: mô hình ngôn ngữ lớn (Large Language Model - LLM) tiên tiến do Google phát triển. Được coi là đã tối ưu hơn so với bản Gemini Flash 2.5.
-    \item Mô hình Claude Haiku 4.5: mô hình ngôn ngữ lớn (Large Language Model - LLM) tiên  tiến do Anthropic phát triển.
-\end{itemize}
+\subsection {Công nghệ phía máy chủ}
+
+Về phía máy chủ, nhóm đã thống nhất sử dụng ngôn ngữ lập trình Python để phát triển ứng dụng. Đây là một ngôn ngữ lập trình rất phổ biến hiện nay trong phát triển ứng dụng web.
+Nó có cấu trúc mã nguồn rất đơn giản và dễ đọc, giúp người lập trình có thể làm quen nhanh hơn và tập trung vào phát triển hệ thống thay vì phải học cú pháp phức tạp. Đồng thời
+điều đó còn giúp cả nhóm phát triển đều hiểu được chức năng dù không tham gia lập trình trực tiếp, nhằm tăng hiệu quả phối hợp. Ngoài ra, Python còn có một cộng đồng đông đảo các nhà phát triển,
+cung cấp lượng lớn các thư viện hỗ trợ nhiều nhu cầu khác nhau cho người dùng. Những điểm trên đã giúp cho quá trình phát triển và triển khai ứng dụng trở nên nhanh chóng và dễ dàng hơn.\par
+
+Nhóm cũng đã lựa chọn framework FastAPI để xây dựng API cho ứng dụng. Đây là một framework hiện đại sử dụng ngôn ngữ Python. Đúng như tên gọi, thư viện này hỗ trợ việc tạo nên các API cực kì nhanh chóng với
+cú pháp đơn giản. Đây cũng là một trong những framework nhanh nhất của Python hiện nay, với tốc độ ngang bằng với các ngôn ngữ khác như NodeJS hay Golang chuyên dụng cho phát triển ứng dụng web. Vì thế nó phù hợp
+để xây dựng lên hệ thống diễn đàn cần xử lí lượng lớn các yêu cầu. Các API được tạo ra bởi FastAPI cũng tuân thủ chuẩn OpenAPI, giúp việc tích hợp vào ứng dụng khách trở nên dễ dàng và có hệ thống.
+FastAPI còn giúp tạo ra tài liệu API tự động có thể tương tác và kiểm thử trực tiếp trên trình duyệt một cách trực quan. Nó cho phép các đội nhóm phát triển khác sử dụng thử, và cung cấp tài liệu hướng dẫn cài đặt và sử dụng API của hệ thống.\par
+Ngoài ra, nó còn cung cấp các tính năng cơ bản mà ứng dụng web cần có như xác thực và bảo mật, kiểm tra dữ liệu đầu vào, và nhiều tính năng khác.
+
+Đối với cơ sở dữ liệu, nhóm đã lựa chọn PostgreSQL. Đây là một cơ sở dữ liệu quan hệ mã nguồn mở phổ biến hiện nay. Chức năng của nó là lưu trữ, quản lí và tổ chức dữ liệu một cách có hệ thống dưới dạng các bảng.
+Mỗi bảng lại bao gồm các trường, hay các cột dữ liệu thể hiện các thuộc tính của đối tượng được lưu, và các bản ghi, hay các hàng dữ liệu là một dữ liệu cụ thể cho một đối tượng. Các bảng có thể liên kết với nhau thông qua các trường liên kết dữ liệu, gọi là khóa ngoại.
+Điều này giúp thể hiện các quan hệ của các đối tượng trong hệ thống. PostgreSQL phù hợp với điều kiện sử dụng phức tạp của diễn đàn, với các đối tượng quan hệ đa dạng. Và vì nó sử dụng ngôn ngữ SQL thuần túy nên rất dễ làm quen.
+\par
+Để kết nối và tương tác với cơ sở dữ liệu, hệ thống sử dụng thư viện SQLAlchemy. Đây là một bộ công cụ ORM giúp ánh xạ các thuộc tính đối tượng trong hệ thống tương ứng với các trường trong cơ sở dữ liệu. Từ đó việc thao tác đọc ghi dữ liệu trở nên nhẹ nhàng hơn thông qua việc thao tác trên chính các đối tượng.
+Ngoài ra SQLAlchemy còn hỗ trợ tạo các truy vấn phức tạp, hỗ trợ truy cập đến các đối tượng quan hệ như là các thuộc tính của đối tượng cha thay vì phải viết biểu thức SQL.
+\par
+
+Ngoài ra, để tăng tốc độ truy xuất dữ liệu, hệ thống sử dụng Redis làm bộ nhớ đệm. Redis cũng là một cơ sở dữ liệu lưu trữ dưới dạng các cặp khóa - giá trị. Redis được tổ chức để hoạt động trên bộ nhớ RAM nên có tốc độ truy xuất cực kì ấn tượng, rất phù hợp với các thao tác đọc dữ liệu lặp lại nhiều lần như trong hệ thống diễn đàn.
+Redis hiện nay được sử dụng rộng rãi trong các hệ thống lớn, nên cũng có cộng đồng hỗ trợ đông đảo và tài liệu hướng dẫn chi tiết. Ngoài ra Redis còn hỗ trợ cấu hình Pub/Sub, rất thích hợp cho hoạt động thông báo được sử dụng trong diễn đàn.
+\par
+Bên cạnh đó, hệ thống cũng sử dụng dịch vụ SMTP của Gmail để thực hiện chức năng gửi thư điện tử đến người dùng. Gmail cung cấp dịch vụ SMTP miễn phí và rất dễ sử dụng. Cùng với sự tin cậy và tốc độ gửi thư nhanh thì đây là một lựa chọn hợp lí cho ứng dụng.
+\par
+Cuối cùng, để hệ thống được vận hành ổn định, nhóm đã lựa chọn sử dụng dịch vụ điện toán đám mây Azure của Microsoft. Đây là một trong những nhà cung cấp dịch vụ đám mây lớn nhất hiện nay, với hệ sinh thái dịch vụ đa dạng và phong phú. Các dịch vụ mà hệ thống có thể khai thác bao gồm: triển khai ứng dụng web với Azure Web app, cơ sở dữ liệu với Azure Database for PostgreSQL flexible server, bộ nhớ đệm với Azure managed Redis, và kho lưu trữ dữ liệu đa phương tiện Azure Blob Storage.
+Điều này giúp việc quản lí vận hành hệ thống máy chủ đơn giản hơn, đảm bảo chất lượng hoạt động tốt với thời gian hoạt động cao, dễ dàng mở rộng, và tiết kiệm chi phí phần cứng cũng như bảo trì.
+\subsection {Công nghệ phía ứng dụng}
+Về phía ứng dụng, nhóm phát triển một ứng dụng di động chạy trên nền tảng Android. Ngôn ngữ lập trình chính được lựa chọn là Kotlin. Đây là ngôn ngữ hiện đại được Google khuyến nghị cho phát triển ứng dụng Android, có cú pháp cô đọng, hỗ trợ mạnh lập trình bất đồng bộ, từ đó giúp giảm lỗi trong quá trình lập trình. Khi khởi tạo dự án, mặc dù Android Studio vẫn hỗ trợ Java, tuy nhiên do Jetpack Compose sử dụng Kotlin compiler để biên dịch các thành phần giao diện, nhóm đã thống nhất sử dụng Kotlin làm ngôn ngữ chính cho toàn bộ ứng dụng nhằm đảm bảo tính nhất quán và dễ bảo trì mã nguồn.\par
+
+Để xây dựng giao diện người dùng, hệ thống sử dụng Jetpack Compose – bộ công cụ (UI toolkit) hiện đại do Google phát triển dành cho Android. Jetpack Compose cho phép mô tả giao diện theo kiểu khai báo, tập trung vào trạng thái (state) và luồng dữ liệu, thay vì phải thao tác trực tiếp với các thành phần View truyền thống. Điều này giúp việc xây dựng, tái sử dụng và chỉnh sửa giao diện trở nên nhanh chóng và trực quan hơn. Khi khởi tạo dự án trong Android Studio, Jetpack Compose đã được tích hợp sẵn vào cấu trúc dự án, giúp rút ngắn thời gian cấu hình ban đầu và hỗ trợ tốt cho việc phát triển các màn hình phức tạp của ứng dụng.\par
+
+Bên cạnh đó, ứng dụng sử dụng Android SDK như là bộ công cụ nền tảng bắt buộc để xây dựng và chạy chương trình trên thiết bị Android. Android SDK cung cấp đầy đủ các thư viện hệ thống, API nền tảng, trình giả lập thiết bị, cùng các công cụ phục vụ quá trình biên dịch, đóng gói và gỡ lỗi ứng dụng. Nhờ đó, nhóm có thể kiểm thử ứng dụng trên nhiều cấu hình thiết bị khác nhau, mô phỏng các trường hợp thực tế và phát hiện lỗi sớm ngay trong giai đoạn phát triển.\par
+
+Đối với các chức năng liên quan đến trí tuệ nhân tạo, ứng dụng phía người dùng được thiết kế để tương tác với các mô hình ngôn ngữ lớn thông qua các API do phía máy chủ cung cấp. Cụ thể, hệ thống sử dụng các mô hình Gemini Flash 2.5 và Gemini Pro 2.5 của Google, cũng như mô hình Claude Haiku 4.5 của Anthropic, để xử lý các tác vụ như sinh bài tập trắc nghiệm. Đây đều là các mô hình ngôn ngữ lớn tiên tiến, thuộc hàng mới nhất hiện nay tại thời điểm phần mềm được bắt đầu phát triển.
 
 \section{Kiến trúc được sử dụng}
 \begin{itemize}
     \item Kiến trúc MVVM (Model-View-ViewModel): Model đại diện cho các mô hình dữ liệu, xử lý dữ liệu và logic nghiệp vụ, View đại diện cho các giao diện, các phần tử thiết kế giao diện người dùng. ViewModel đại diện cho các lớp xử lý logic, quản lý trạng thái của các thành phần giao diện. Tóm lại, View sẽ hiển thị, đồng thời nhận, phản ứng theo trạng thái từ ViewModel.
-    \item Kiến trúc Client-Server
+    \item Kiến trúc Client-Server: kiến trúc chia hệ thống thành hai phần tách biệt là ứng dụng khách (client) và máy chủ (server). Ứng dụng Android đóng vai trò client, chịu trách nhiệm hiển thị giao diện và xử lý tương tác với người dùng. Máy chủ backend (xây dựng bằng FastAPI, PostgreSQL, Redis, Azure, \ldots) chịu trách nhiệm xử lý nghiệp vụ, lưu trữ và quản lí dữ liệu, đồng thời cung cấp các API cho client truy cập. Hai phía trao đổi dữ liệu thông qua giao thức HTTP/HTTPS với định dạng JSON, giúp hệ thống dễ mở rộng, bảo trì.
+    \item Kiến trúc 3-tầng (3-tier architecture): bao gồm 3 tầng Application, Business Service, Data. Cụ thể được mô tả ở phần thiết kế kiến trúc bậc cao.
 \end{itemize}
 \chapter{Thu thập phân tích đặc tả yêu cầu}
 
@@ -522,8 +560,6 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
 %Trang tham khảo
 \begin{thebibliography}{99}
     \begin{bibsection}{Tiếng Việt}
-        \bibitem{hehe}
-            hehe, \textit{The Art of hehe},.
         \bibitem{wilson}
             Phan Ngọc, Khoảng tin cậy Wilson, \textit{Viblo}, 2018, \url{https://viblo.asia/p/khoang-tin-cay-wilson-XRJ8Rld8VGq}
 
