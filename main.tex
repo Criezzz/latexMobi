@@ -168,13 +168,17 @@ Trình bày kết quả kiểm thử hệ thống
 \chapter{Kiến thức nền tảng}
 \section{Các công nghệ đã được sử dụng}
 \begin{itemize}
-    \item FastAPI
-    \item Mô hình Gemini Flash 2.5
+    \item Jetpack Compose: toolkit xây dựng giao diện người dùng cho Android. Khi khởi tạo dự án trong Android Studio, Jetpack Compose được tích hợp sẵn giúp phát triển giao diện nhanh chóng và hiệu quả.
+    \item Kotlin: ngôn ngữ lập trình chính để phát triển ứng dụng Android. Khi khởi tạo dự án, dù Android Studio vẫn hỗ trợ Java, tuy nhiên do Jetpack Compose sử dụng Kotlin compiler để compile, nên Kotlin được nhóm sử dụng làm ngôn ngữ chính luôn.
+    \item Android SDK: bộ cung cụ phát triển phần mềm cho nền tảng Android. Khi khởi tạo dự án, đây là bộ công cụ bắt buộc cần được cài đặt để xây dựng và chạy ứng dụng Android. Nó cung cấp các thư viện, công cụ hỗ trợ chạy máy ảo, xây dựng phần mềm, gỡ lỗi phần mềm.
+    \item Mô hình Gemini Flash 2.5: mô hình ngôn ngữ lớn (Large Language Model - LLM) tiên  tiến do Google phát triển.
+    \item Mô hình Gemini Pro 2.5: mô hình ngôn ngữ lớn (Large Language Model - LLM) tiên tiến do Google phát triển. Được coi là đã tối ưu hơn so với bản Gemini Flash 2.5.
+    \item Mô hình Claude Haiku 4.5: mô hình ngôn ngữ lớn (Large Language Model - LLM) tiên  tiến do Anthropic phát triển.
 \end{itemize}
 
 \section{Kiến trúc được sử dụng}
 \begin{itemize}
-    \item Kiến trúc Microservices
+    \item Kiến trúc MVVM (Model-View-ViewModel): Model đại diện cho các mô hình dữ liệu, xử lý dữ liệu và logic nghiệp vụ, View đại diện cho các giao diện, các phần tử thiết kế giao diện người dùng. ViewModel đại diện cho các lớp xử lý logic, quản lý trạng thái của các thành phần giao diện. Tóm lại, View sẽ hiển thị, đồng thời nhận, phản ứng theo trạng thái từ ViewModel.
     \item Kiến trúc Client-Server
 \end{itemize}
 \chapter{Thu thập phân tích đặc tả yêu cầu}
@@ -321,7 +325,7 @@ Hình trên thể hiện tổ chức tổng thể ở mức cao của hệ thố
     \begin{figure}[H]{Màn hình \textit{Tạo bài tập}}
         \centering
         \includegraphics[width=0.4\textwidth]{UI/genai1.png}
-        \includegraphics[width=0.4\textwidth]{UI/genai1.png}
+        \includegraphics[width=0.4\textwidth]{UI/genai2.png}
     \end{figure}
 
 \section{Chức năng AI}
