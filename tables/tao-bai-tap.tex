@@ -1,0 +1,38 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table}
+ \def\@captype{a@table}
+ \def\@captiontext{\centering Bảng kiểm thử: Tạo bài tập từ bài viết}
+ \noindent\attachmentcaption\par\vspace{0.25cm}
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện: 15/11/2025\\ Người thực hiện: Tô Quang Thắng}}\\
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+1 & Mở luyện tập từ bài viết & Mở một bài viết đủ dài → nhấn nút “AI Practice”. & Chuyển sang màn luyện tập và hiển thị câu hỏi đầu tiên. & Ứng dụng chuyển sang màn luyện tập và hiển thị câu đầu tiên đúng như mong đợi. & Pass \\
+\hline
+2 & MCQ yêu cầu chọn đáp án & Ở câu trắc nghiệm → bấm “Kiểm tra” khi chưa chọn đáp án. & Hiện cảnh báo yêu cầu chọn đáp án và không sang bước phản hồi. & Thông báo xuất hiện yêu cầu chọn đáp án và trạng thái câu hỏi được giữ nguyên. & Pass \\
+\hline
+3 & Điền khuyết hiển thị đáp án đúng & Câu điền khuyết → kiểm tra khi bỏ trống → nhập sai và kiểm tra lại. & Cảnh báo khi chưa nhập đáp án và khi sai thì hiển thị đáp án đúng trong phần phản hồi. & Ứng dụng thông báo đúng lúc cần thiết và hiển thị đáp án chuẩn khi người dùng trả lời sai. & Pass \\
+\hline
+4 & Hoàn tất và làm lại & Trả lời hết câu → màn tổng kết → chọn “Làm lại”. & Hiện số câu đúng sai và khi làm lại quay về câu đầu với trạng thái sạch sẽ. & Màn tổng kết hiển thị đầy đủ và khi chọn làm lại hệ thống đưa người dùng về câu đầu như yêu cầu. & Pass \\
+\hline
+\end{tabularx}

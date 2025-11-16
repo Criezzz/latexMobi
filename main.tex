@@ -109,9 +109,6 @@
 % Bắt đầu nội dung chính (chương 1)
 \chapter{Đặt vấn đề}\label{ch:dat-van-de}
 
-
-\noindent Đây là phần mở đầu chương 1 (Đặt vấn đề). Thêm nội dung chi tiết về bối cảnh,
-vấn đề nghiên cứu, mục tiêu và phạm vi ở đây.
 %--------------------------------
 \section{Hiện trạng}
 Tiếng anh từ lâu đã dần trở thành 1 ngôn
@@ -189,6 +186,17 @@ Trình bày kết quả kiểm thử hệ thống
 \noindent Đây là phần mở đầu chương 4 (Thiết kế hệ thống). 
 
 \section{Thiết kế mức cao}
+\begin{figure}[H]{Kiến trúc hệ thống bậc cao}
+    \centering
+    \includegraphics[width=0.4\textwidth]{anh/highlevelmobi.drawio.png}
+    
+\end{figure}
+Hình trên thể hiện tổ chức tổng thể ở mức cao của hệ thống phần mềm. Hệ thống được chia thành 3 tầng:
+\begin{itemize}
+    \item \textbf{Tầng giao Ứng dụng (Application Layer):} chứa các thành phần thiết kế gắn với từng ca sử dụng của hệ thống.
+    \item \textbf{Tầng Dịch vụ nghiệp vụ (Business Service Layer):} đóng gói cái trừu tượng, đối tượng, dịch vụ dùng chung cho nhiều ca sử dụng.
+    \item \textbf{Tầng Dữ liệu (Data Layer):} quản lý việc lưu trữ, truy xuất, quản lý dữ liệu từ cơ sở dữ liệu của hệ thống.
+\end{itemize}
 
 \section{Biểu đồ tuần tự}
 
@@ -200,11 +208,116 @@ Trình bày kết quả kiểm thử hệ thống
 
 \chapter{Cài đặt và thử nghiệm}
 \section{Giao diện hệ thống}
-\subsection{Màn hình đăng nhập}
+\subsection{Giao diện \textit{Đăng nhập}}
+\begin{figure}[H]{Màn hình \textit{Đăng nhập}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/login.png}
+    
+\end{figure}
 
 
+\subsection{Giao diện \textit{Đăng ký}}
+\begin{figure}[H]{Màn hình \textit{Đăng ký}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/dangky.png}
+    \includegraphics[width=0.4\textwidth]{UI/dangky2.png}
+\end{figure}
+
+
+\subsection{Giao diện \textit{Quên mật khẩu}}
+\begin{figure}[H]{Màn hình \textit{Gửi OTP}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/guiotp.png}
+    \includegraphics[width=0.4\textwidth]{UI/guiotp2.png}
+\end{figure}
+
+\subsection{Giao diện \textit{Trang chủ}}
+
+\begin{figure}[H]{Màn hình \textit{Trang chủ}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/home.png}
+    
+\end{figure}
+
+
+\subsection{Giao diện \textit{Xem bài viết}}
+\begin{figure}[H]{Màn hình \textit{Xem bài viết}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/postdetail.png}
+    
+\end{figure}
+
+
+
+\subsection{Giao diện \textit{Tìm kiếm}}
+\begin{figure}[H]{Màn hình \textit{Tìm kiếm}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/search1.png}
+    \includegraphics[width=0.4\textwidth]{UI/search2.png}
+
+\end{figure}
+
+
+\subsection{Giao diện \textit{Tạo bài viết}}
+
+\begin{figure}[H]{Màn hình \textit{Chọn chủ đề}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/create1.png}
+\end{figure}
+\begin{figure}[H]{Màn hình \textit{Nhập nội dung}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/create2.png}
+\end{figure}
+\begin{figure}[H]{Màn hình \textit{Tải ảnh}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/create3.png}
+\end{figure}
+\begin{figure}[H]{Màn hình \textit{Xem lại trước khi đăng bài viết}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/create4.png}
+\end{figure}
+
+\subsection{Giao diện \textit{Thông báo}}
+\begin{figure}[H]{Màn hình \textit{Xem thông báo}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/noti.png}
+\end{figure}
+
+
+
+\subsection{Giao diện \textit{Hồ sơ cá nhân}}
+\begin{figure}[H]{Màn hình \textit{Xem hồ sơ cá nhân}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/pro5.png}
+\end{figure}
+\begin{figure}[H]{Màn hình \textit{Chỉnh sửa cài đặt giao diện}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/settingui.png}
+    \includegraphics[width=0.4\textwidth]{UI/settingui2.png}
+\end{figure}
+
+\begin{figure}[H]{Màn hình \textit{Chỉnh sửa thông tin cá nhân}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/changepro5.png}
+\end{figure}
+\begin{figure}[H]{Màn hình \textit{Chỉnh sửa mật khẩu}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/changepass.png}
+\end{figure}
+\begin{figure}[H]{Màn hình \textit{Chỉnh sửa email}}
+    \centering
+    \includegraphics[width=0.4\textwidth]{UI/changeemial.png}
+
+\end{figure}
+\subsection{Giao diện \textit{Tạo bài tập}}
+    \begin{figure}[H]{Màn hình \textit{Tạo bài tập}}
+        \centering
+        \includegraphics[width=0.4\textwidth]{UI/genai1.png}
+        \includegraphics[width=0.4\textwidth]{UI/genai1.png}
+    \end{figure}
 
 \section{Chức năng AI}
+
 \subsection{Mô tả ngắn gọn}
 Hệ thống có chức năng AI giúp tạo bài tập trắc nghiệm dựa trên chủ đề
 mà AI nhận dạng từ bài viết của người dùng.
@@ -371,6 +484,19 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
 % Nội dung bảng nằm ở tables/tim-kiem.tex
 \input{tables/tim-kiem.tex}
 
+\subsection{Sửa thông tin cá nhân}
+% Nội dung bảng nằm ở tables/sua-thong-tin-ca-nhan.tex
+\input{tables/sua-thong-tin-ca-nhan}
+
+\subsection{Sửa cài đặt giao diện}
+% Nội dung bảng nằm ở tables/sua-cai-dat-giao-dien.tex
+\input{tables/sua-cai-dat-giao-dien}
+
+\subsection{Tạo bài tập}
+% Nội dung bảng nằm ở tables/tao-bai-tap.tex
+\input{tables/tao-bai-tap}
+
+
 \section{Đánh giá độ phủ}
 
 % Tài liệu tham khảo 
@@ -409,8 +535,7 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
         \bibitem{kappaparadox}
             Wongpakaran, N., Wongpakaran, T., Wedding, D. et al. A comparison of Cohen’s Kappa and Gwet’s AC1 when calculating inter-rater reliability coefficients: a study conducted with personality disorder samples. BMC Med Res Methodol 13, 61 (2013), pp. 2.
         \bibitem{kappatable}
-
-            Landis, J. Richard, and Gary G. Koch. “The Measurement of Observer Agreement for Categorical Data.” Biometrics, vol. 33, no. 1, 1977, pp. 165. JSTOR, https://doi.org/10.2307/2529310.
+            Landis, J. Richard, and Gary G. Koch. “The Measurement of Observer Agreement for Categorical Data.” Biometrics, vol. 33, no. 1, 1977, pp. 165. JSTOR, \url{https://doi.org/10.2307/2529310}.
 
     \end{bibsection}
 \end{thebibliography}

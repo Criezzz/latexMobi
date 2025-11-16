@@ -1,0 +1,38 @@
+% !TeX root = ../main.tex
+% Bảng dài tự ngắt trang: dùng ltablex (tabularx dạng longtable) và không đặt trong float
+% In caption theo style của class `uetgraduation`
+{\makeatletter
+ \refstepcounter{a@table}
+ \def\@captype{a@table}
+ \def\@captiontext{\centering Bảng kiểm thử: Sửa cài đặt giao diện}
+ \noindent\attachmentcaption\par\vspace{0.25cm}
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{1.2cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\multicolumn{3}{|c|}{} &\multicolumn{3}{|c|}{\parbox[t]{8cm}{\raggedright Ngày thực hiện: 15/11/2025\\ Người thực hiện: Tô Quang Thắng}}\\
+\hline
+\multirow{2}{*}{STT} & \multicolumn{1}{|c|}{\multirow{2}{*}{Mô tả}} & \multicolumn{1}{|c|}{\multirow{2}{*}{Đầu vào}} & \multicolumn{2}{c|}{Đầu ra} & \multirow{2}{*}{Trạng thái}\\
+\cline{4-5}
+ &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
+\hline
+1 & Đổi theme trong bottom sheet & Vào Cài đặt → Giao diện ứng dụng → chọn “Dark” → Áp dụng. & Giao diện đổi sang chế độ tối và sheet được đóng lại. & Ứng dụng chuyển sang chế độ tối ngay sau khi áp dụng và sheet đóng đúng như dự kiến. & Pass \\
+\hline
+2 & Bật Material You & Tại Cài đặt → bật công tắc “Material You”. & Chế độ Material You bật và mục chọn màu chủ đạo biến mất. & Màu động được kích hoạt và mục chọn màu không còn xuất hiện. & Pass \\
+\hline
+3 & Chọn màu hạt giống tùy chỉnh & Material You tắt → mở “Màu chủ đạo” → chọn màu hoặc điều chỉnh slider → Áp dụng. & Màu chủ đạo đổi theo lựa chọn và vòng xem trước cập nhật đúng màu. & Màu chủ đạo và vòng xem trước đều thay đổi chính xác theo màu được chọn. & Pass \\
+\hline
+4 & Bật hoặc tắt chế độ AMOLED & Chạm công tắc “AMOLED”. & Giao diện chuyển sang nền đen hoàn toàn và được lưu lại. & Chế độ nền đen được bật đúng chức năng và trạng thái được lưu trữ. & Pass \\
+\hline
+\end{tabularx}
