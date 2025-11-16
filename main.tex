@@ -52,8 +52,8 @@
 \documenttype{Báo cáo Phát triển ứng dụng di động}
 \major{Công nghệ thông tin}
 \year{2025}
-\supervisor{PGS. TS. Nguyễn Đông A}
-\cosupervisor{TS. Phạm Tuấn B}
+\supervisor{TS. Nguyễn Đức Anh}
+\cosupervisor{ThS. Trần Mạnh Cường}
 
 \makecovers
 
@@ -158,16 +158,25 @@ các người học với nhau một cách hiệu quả. Nhiều nền tảng ch
 %--------------------------------
 \section{Báo cáo}
 % Tổng hợp kết quả kiểm thử
-\subsection{Kết quả kiểm thử hiệu năng}
-
-\subfile{cuong/loadtest.tex}
+\subsection{Kết quả kiểm thử hiệu}
+Trình bày kết quả ``kiểm thử hiệu năng''
 
 \subsection{Kết quả kiểm thử hệ thống}
 Trình bày kết quả kiểm thử hệ thống
 
 %--------------------------------
 \chapter{Kiến thức nền tảng}
+\section{Các công nghệ đã được sử dụng}
+\begin{itemize}
+    \item FastAPI
+    \item Mô hình Gemini Flash 2.5
+\end{itemize}
 
+\section{Kiến trúc được sử dụng}
+\begin{itemize}
+    \item Kiến trúc Microservices
+    \item Kiến trúc Client-Server
+\end{itemize}
 \chapter{Thu thập phân tích đặc tả yêu cầu}
 
 \section{Biểu đồ ca sử dụng hệ thống EnglishForum}
@@ -184,8 +193,6 @@ Trình bày kết quả kiểm thử hệ thống
 
 \chapter{Thiết kế hệ thống}
 
-\noindent Đây là phần mở đầu chương 4 (Thiết kế hệ thống). 
-
 \section{Thiết kế mức cao}
 \begin{figure}[H]{Kiến trúc hệ thống bậc cao}
     \centering
@@ -196,7 +203,7 @@ Hình trên thể hiện tổ chức tổng thể ở mức cao của hệ thố
 \begin{itemize}
     \item \textbf{Tầng giao Ứng dụng (Application Layer):} chứa các thành phần thiết kế gắn với từng ca sử dụng của hệ thống.
     \item \textbf{Tầng Dịch vụ nghiệp vụ (Business Service Layer):} đóng gói cái trừu tượng, đối tượng, dịch vụ dùng chung cho nhiều ca sử dụng.
-    \item \textbf{Tầng Dữ liệu (Data Layer):} quản lý việc lưu trữ, truy xuất, quản lý dữ liệu từ cơ sở dữ liệu của hệ thống.
+    \item \textbf{Tầng Dữ liệu (Data Layer):} quản lý việc lưu trữ, truy xuất dữ liệu từ cơ sở dữ liệu của hệ thống.
 \end{itemize}
 
 \section{Biểu đồ tuần tự}
@@ -499,8 +506,6 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
 
 
 \section{Đánh giá độ phủ}
-
-\subfile{cuong/backend_cov.tex}
 
 % Tài liệu tham khảo 
 %Các tài liệu tham khảo khi liệt kê vào danh mục phải đầy đủ 
