@@ -27,12 +27,12 @@
 \cline{4-5}
  &  &  & Đầu ra mong muốn & Đầu ra thực tế & \\
 \hline
-1 & Cập nhật tên + giới thiệu hợp lệ & Đăng nhập → vào Hồ sơ → Chỉnh sửa hồ sơ → đổi tên “Lan Nguyen”, nhập bio 150 ký tự → Lưu. & Lưu thành công, đóng hộp thoại, xuất hiện thông báo và hồ sơ hiển thị tên cùng bio mới. & Hệ thống lưu đúng, thông báo xuất hiện và hồ sơ cập nhật ngay sau khi lưu. & Pass \\
+1 & Cập nhật tên + giới thiệu hợp lệ & Đăng nhập rồi vào Hồ sơ, chọn Chỉnh sửa hồ sơ và đổi tên “Lan Nguyen”, nhập bio 150 ký tự, nhấn Lưu. & Lưu thành công, đóng hộp thoại, hiển thị tên cùng bio mới. & Như mong đợi & Pass \\
 \hline
-2 & Không cho phép tên rỗng & Mở chỉnh sửa hồ sơ → xóa toàn bộ tên → bấm Lưu. & Báo lỗi yêu cầu nhập tên, nút Lưu bị vô hiệu cho đến khi tên hợp lệ. & Ứng dụng hiển thị cảnh báo tên trống và ngăn không cho lưu cho tới khi người dùng nhập lại tên. & Pass \\
+2 & Không cho phép tên rỗng & Mở chỉnh sửa hồ sơ rồi xóa toàn bộ tên sau đó bấm Lưu. & Báo lỗi yêu cầu nhập tên, nút Lưu bị vô hiệu cho đến khi tên hợp lệ. & Như mong đợi & Pass \\
 \hline
-3 & Bio trống sau khi đã có nội dung & Hồ sơ có bio → xóa bio → Lưu. & Hiện lỗi yêu cầu nhập bio và hộp thoại không bị đóng. & Lỗi được hiển thị đúng, dialog giữ nguyên và hồ sơ không thay đổi. & Pass \\
+3 & Bio trống sau khi đã có nội dung & Mở hồ sơ có bio rồi xóa đi và lưu lại. & Hiện lỗi yêu cầu nhập bio và hộp thoại không bị đóng. & Như mong đợi & Pass \\
 \hline
-4 & Bio vượt quá 280 ký tự & Dán bio dài hơn 280 ký tự → bấm Lưu. & Bio được giới hạn còn 280 ký tự và hiển thị cảnh báo nếu vượt quá. & Trường bio tự giới hạn đúng 280 ký tự và hệ thống báo lỗi khi người dùng cố lưu nội dung vượt mức. & Pass \\
+4 & Bio vượt quá 280 ký tự & Dán bio dài hơn 280 ký tự và bấm Lưu. & Bio được giới hạn còn 280 ký tự và hiển thị cảnh báo nếu vượt quá. & Như mong đợi & Pass \\
 \hline
 \end{tabularx}

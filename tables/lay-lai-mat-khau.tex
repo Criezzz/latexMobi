@@ -30,30 +30,30 @@
 
     \multicolumn{6}{|c|}{Giai đoạn 1: Nhập tài khoản} \\
     \hline
-    1 & Nhập tên đăng nhập tồn tại & username= ``\seqsplit{testusername1}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
+    1 & Nhập tên đăng nhập tồn tại & username= ``\seqsplit{testusername1}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Như mong đợi & Pass \\
     \hline
-    2 & Nhập email tồn tại & username= ``\seqsplit{cuong190105@gmail.com}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Pass \\
+    2 & Nhập email tồn tại & username= ``\seqsplit{cuong190105@gmail.com}'' & Gửi mail khôi phục đến email tương ứng, chuyển sang giao diện nhập OTP & Như mong đợi & Pass \\
     \hline
-    3 & Nhập tài khoản không tồn tại & username= ``\seqsplit{testpassword}'' & Thông báo tài khoản không tồn tại & Thông báo tài khoản không tồn tại & Pass \\
+    3 & Nhập tài khoản không tồn tại & username= ``\seqsplit{testpassword}'' & Thông báo tài khoản không tồn tại & Như mong đợi & Pass \\
     \hline
-    4 & Bỏ trống tài khoản & username & Nút Gửi OTP bị vô hiệu hóa & Nút gửi OTP không bấm được & Pass \\
+    4 & Bỏ trống tài khoản & username & Nút Gửi OTP bị vô hiệu hóa & Như mong đợi & Pass \\
     \hline
-    5 & gửi yêu cầu khôi phục một tại khoản nhiều hơn 1 lần/phút & username= ``\seqsplit{testusername1}'' & Thông báo yêu cầu quá nhanh & Thông báo yêu cầu quá nhanh & Pass \\
+    5 & gửi yêu cầu khôi phục một tại khoản nhiều hơn 1 lần/phút & username= ``\seqsplit{testusername1}'' & Thông báo yêu cầu quá nhanh & Như mong đợi & Pass \\
     \hline
     \multicolumn{6}{|c|}{Giai đoạn 2: Nhập OTP} \\
     \hline
-    6 & Nhập sai OTP & OTP= ``000000'' & Thông báo sai OTP & Thông báo sai OTP & Pass \\
+    6 & Nhập sai OTP & OTP= ``000000'' & Thông báo sai OTP & Như mong đợi & Pass \\
     \hline
-    7 & Gửi lại OTP &  & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Pass \\
+    7 & Gửi lại OTP &  & Gửi email khôi phục mới, vô hiệu hóa nút gửi lại trong 60s & Như mong đợi & Pass \\
     \hline
-    8 & Nhập đúng OTP & OTP= ``330478'' & Vô hiệu hóa ô nhập OTP, hiển thị ô nhập mật khẩu mới & Vô hiệu hóa ô nhập OTP, hiển thị ô nhập mật khẩu mới & Pass \\
+    8 & Nhập đúng OTP & OTP= ``330478'' & Vô hiệu hóa ô nhập OTP, hiển thị ô nhập mật khẩu mới & Như mong đợi & Pass \\
     \hline
     \multicolumn{6}{|c|}{Giai đoạn 3: Nhập mật khẩu mới} \\
     \hline
-    9 & Nhập mật khẩu ngắn & password= ``abc'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu ít nhất 8 kí tự & Thông báo mật khẩu ít nhất 8 kí tự & Pass \\
+    9 & Nhập mật khẩu ngắn & password= ``abc'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu ít nhất 8 kí tự & Như mong đợi & Pass \\
     \hline
-    10 & Nhập mật khẩu hợp lệ, xác nhận không khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu xác nhận không khớp & Thông báo mật khẩu xác nhận không khớp & Pass \\
+    10 & Nhập mật khẩu hợp lệ, xác nhận không khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ``abc'' & Thông báo mật khẩu xác nhận không khớp & Như mong đợi & Pass \\
     \hline
-    11 & Nhập mật khẩu hợp lệ, xác nhận khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ''\seqsplit{testusername1}'' & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Pass \\
+    11 & Nhập mật khẩu hợp lệ, xác nhận khớp & password= ``\seqsplit{testusername1}'', \seqsplit{password\_confirmation}= ''\seqsplit{testusername1}'' & Thông báo mật khẩu đổi thành công, chuyển đến màn hình đăng nhập & Như mong đợi & Pass \\
     \hline
 \end{tabularx}

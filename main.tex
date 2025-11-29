@@ -13,6 +13,7 @@
     }{\endlist}%
 }{}
 \makeatother
+\usepackage{needspace}
 \usepackage{enumitem}
 % Bảng kiểm thử: màu nền header, tabularx, đường kẻ dày/mảnh, ô đa dòng
 \usepackage{tabularx}
@@ -46,8 +47,8 @@
 \begin{document}
 
 \studentname{23020122 -- Phùng Hải Nam}
-\studentnametwo{23020122 -- Nguyễn Văn Cường}
-\studentnamethree{23020122 -- Tô Quang Thắng}
+\studentnametwo{23020019 -- Nguyễn Văn Cường}
+\studentnamethree{23021724 -- Tô Quang Thắng}
 \title{Ứng dụng EnglishForum}
 \documenttype{Báo cáo Phát triển ứng dụng di động}
 \major{Công nghệ thông tin}
@@ -69,28 +70,34 @@
     \begin{contentlistingsection}{Danh sách thuật ngữ}
         % Thêm các mục thuật ngữ dưới đây theo định dạng \item[Thuật ngữ] Mô tả
         \begin{description}
+            \item[AMOLED] Active-Matrix Organic Light-Emitting một công nghệ màn hình điện thoại hiện nay
             \item[API] Application Programming Interface - Giao diện lập trình ứng dụng gồm các giao thức giúp các thành phần của hệ thống trao đổi thông tin với nhau.
+            \item[Backend] Phần máy chủ xử lý logic nghiệp vụ và dữ liệu
+            \item[Client] Phần ứng dụng phía người dùng
             \item[CSDL] Cơ sở dữ liệu. 
+            \item[Minimal Prompt] Kỹ thuật thiết kế câu lệnh cơ bản hướng dẫn mô hình thực hiện nhiệm vụ.
+            \item[Chain of Thoughts (CoT)] Một kỹ thuật thiết kế câu lệnh hướng dẫn mô hình suy nghĩ giải quyết vấn đề.
+            \item[Cosine Similarity] Đo lường độ tương đồng giữa hai vectơ trong không gian đa chiều bằng cách tính cosin của góc giữa chúng.
+            \item[downvote] Hành động người dùng đánh giá tiêu cực trên giao diện
             \item[framework] Là một bộ khung chương trình, cung cấp sẵn các công cụ và phương thức để xây dựng nên một ứng dụng cụ thể.
-            \item[SQL] Structured Query Language - Ngôn ngữ truy vấn có cấu trúc nhằm thao tác trên cơ sở dữ liệu.
+            \item{JaCoCo} Java Code Coverage - Công cụ đo độ bao phủ mã nguồn trong quá trình kiểm thử phần mềm.
+            \item{Jetpack Compose} Bộ công cụ hiện đại của Google để xây dựng giao diện người dùng trên Android bằng cách sử dụng ngôn ngữ lập trình Kotlin.
+            \item{JSON} JavaScript Object Notation - Định dạng dữ liệu dạng văn bản dùng để trao đổi dữ liệu giữa các hệ thống.
+            \item{Kotlin} Ngôn ngữ lập trình hiện đại, đa nền tảng, được sử dụng chủ yếu để phát triển ứng dụng Android.
+            \item[LLM] Large Language Model -- Mô hình ngôn ngữ lớn, một loại mô hình trí tuệ nhân tạo được huấn luyện trên lượng dữ liệu văn bản khổng lồ để hiểu và sinh ngôn ngữ tự nhiên.
             \item[ORM] Object-Relational Mapping - Ánh xạ các đối tượng trong hệ thống với các bảng trong cơ sở dữ liệu quan hệ.
-            \item[RAM] Random Access Memory - Bộ nhớ truy cập ngẫu nhiên, là bộ nhớ tạm thời của máy tính để lưu trữ dữ liệu và chương trình đang chạy.
-            \item[SMTP] Simple Mail Transfer Protocol - Giao thức truyền thư điện tử đơn giản, dùng để gửi thư điện tử qua mạng Internet.
+            \item[prompt] Đoạn văn bản đầu vào được cung cấp cho mô hình ngôn ngữ lớn đề hướng dẫn nó làm điều gì đó.
             \item[Pub/Sub] Publish/Subscribe - Mô hình truyền tin trong đó người gửi gửi tin đến một kênh và người nhận đăng ký nhận tin từ kênh đó mà không cần biết đến nhau.
+            \item[RAM] Random Access Memory - Bộ nhớ truy cập ngẫu nhiên, là bộ nhớ tạm thời của máy tính để lưu trữ dữ liệu và chương trình đang chạy.
+            \item[server] Phần máy chủ cung cấp dịch vụ, xử lý yêu cầu từ client và quản lý dữ liệu.
+            \item[SMTP] Simple Mail Transfer Protocol - Giao thức truyền thư điện tử đơn giản, dùng để gửi thư điện tử qua mạng Internet.
+            \item[snackbar] Thanh thông báo nhỏ xuất hiện ở cạnh dưới màn hình để hiển thị thông báo ngắn gọn về trạng thái hoặc kết quả của một hành động nào đó. (trên giao diện người dùng)
+            \item[SQL] Structured Query Language - Ngôn ngữ truy vấn có cấu trúc nhằm thao tác trên cơ sở dữ liệu.
             \item[SSE] Server-Sent Events - Kỹ thuật cho phép máy chủ gửi dữ liệu tự động đến máy khách qua kết nối HTTP.
             \item[token] Mã khóa đặc biết dùng trong xác thực và bảo mật.
-            \item[vCPU/vCore] Bộ xử lí trung tâm ảo, đơn vị đo hiệu năng xử lí do Azure cung cấp.
-            \item[AMOLED] Active-Matrix Organic Light-Emitting một công nghệ màn hình điện thoại hiện nay
-            \item[prompt] Đoạn văn bản đầu vào được cung cấp cho mô hình ngôn ngữ lớn đề hướng dẫn nó làm điều gì đó.
-            \item[LLM] Large Language Model -- Mô hình ngôn ngữ lớn, một loại mô hình trí tuệ nhân tạo được huấn luyện trên lượng dữ liệu văn bản khổng lồ để hiểu và sinh ngôn ngữ tự nhiên.
-            \item[server] Phần máy chủ cung cấp dịch vụ, xử lý yêu cầu từ client
-             và quản lý dữ liệu.
-            \item[Client] Phần ứng dụng phía người dùng
-            \item[Backend] Phần máy chủ xử lý logic nghiệp vụ và dữ liệu
-            \item[snackbar] Thanh thông báo nhỏ xuất hiện ở cạnh dưới màn hình để hiển thị thông báo ngắn gọn về trạng thái hoặc kết quả của một hành động nào đó. (trên giao diện người dùng)
-            \item[vote] Hành động người dùng thể hiện đánh giá tích cực hoặc tiêu cực, bao gồm upvote và downvote.
             \item[upvote] Hành động người dùng đánh giá tích cực trên giao diện
-            \item[downvote] Hành động người dùng đánh giá tiêu cực trên giao diện
+            \item[vCPU/vCore] Bộ xử lí trung tâm ảo, đơn vị đo hiệu năng xử lí do Azure cung cấp.
+            \item[vote] Hành động người dùng thể hiện đánh giá tích cực hoặc tiêu cực, bao gồm upvote và downvote.
         \end{description}
     \end{contentlistingsection}
 
@@ -99,7 +106,7 @@
         Chúng tôi xin cam đoan rằng nội dung khóa luận này là kết quả lao động cá nhân của cả nhóm,
         trừ những phần đã được trích dẫn và tham khảo rõ ràng. Chúng chịu trách nhiệm về
         những nội dung thuộc về mình và xin cam kết không vi phạm các quy định về đạo đức
-        học thuật. Nếu phát hiện 1 đoạn do AI sinh ra, cả nhóm xin nhận 0 điểm.\par}
+        học thuật. Nếu phát hiện đoạn văn do AI sinh ra, cả nhóm xin nhận 0 điểm.\par}
 
         \vspace{2cm}
         \begin{center}
@@ -116,7 +123,11 @@
                 \textbf{Chữ ký học sinh}
             \end{minipage}
         \end{center}
+        \vspace{6cm}
+        \input{tables/thanh-vien.tex}
+  Do nhóm vào lớp muộn và 1 thành viên bỏ lớp nên nhân lực chỉ có 3 người. Do đó các thành viên đều hỗ trợ nhau rất nhiều trong quá trình thực hiện để hoàn thiện sản phẩm nên vai trò của ai cũng rất quan trọng cho sự hoàn thiện của dự án.
     \end{contentlistingsection}
+    
     
     \tableofcontents
 
@@ -173,6 +184,11 @@ các người học với nhau một cách hiệu quả. Nhiều nền tảng ch
  của người học mới.
 
 %--------------------------------
+\section{Phương án đề xuất}
+Nhóm quyết định chọn đề tài cho ứng dụng di động cho báo cáo lần này là một phần mềm diễn đàn tiếng anh trên điện thoại, lấy tên là ``EnglishForum''.
+\par
+Ứng dụng sẽ cung cấp nền tảng trực tuyến trên điện thoại di động để người học tiếng anh khắp Việt Nam có thể kết nối và trao đổi.
+
 \section{Báo cáo}
 % Tổng hợp kết quả kiểm thử
 \subsection{Kết quả kiểm thử hiệu}
@@ -187,6 +203,16 @@ các thời điểm và ít khi xảy ra cao điểm tắc nghẽn.
 \subsection{Kết quả kiểm thử hệ thống}
 100\% các chức năng nghiệp vụ chính của hệ thống đã được kiểm thử và hoạt động đúng theo yêu cầu đề ra.
 
+\section{Cấu trúc báo cáo}
+Báo cáo được tổ chức thành 6 chương chính như sau:
+\begin{itemize}
+    \item Chương 1: Đặt vấn đề: Trình bày hiện trạng, các giải pháp, phương án đề xuất và báo cáo sơ lược kết quả.
+    \item Chương 2: Kiến thức nền tảng: Trình bày các công nghệ và kiến trúc được sử dụng trong dự án
+    \item Chương 3: Thu thập phân tích đặc tả yêu cầu: Minh họa cái nhìn tổng quát nhất về hệ thống và mô tả 3 ca sử dụng của hệ thống
+    \item Chương 4: Thiết kế hệ thống: Trình bày thiết kế mức cao của hệ thống, đặc tả chi tiết 3 ca sử dụng và thiết kế cơ sở dữ liệu.
+    \item Chương 5: Cài đặt và thử nghiệm: Minh họa các giao diện của hệ thống, trình bày quy trình kiểm thử, quy trình đánh giá hệ thống và trình bày về chức năng AI của hệ thống.
+    \item Chương 6: Kết luận: Tóm tắt kết quả đạt được và nêu ra hướng phát triển trong tương lai
+\end{itemize}
 %--------------------------------
 \chapter{Kiến thức nền tảng}
 \section{Các công nghệ đã được sử dụng}
@@ -219,13 +245,55 @@ Bên cạnh đó, hệ thống cũng sử dụng dịch vụ SMTP của Gmail đ
 Cuối cùng, để hệ thống được vận hành ổn định, nhóm đã lựa chọn sử dụng dịch vụ điện toán đám mây Azure của Microsoft. Đây là một trong những nhà cung cấp dịch vụ đám mây lớn nhất hiện nay, với hệ sinh thái dịch vụ đa dạng và phong phú. Các dịch vụ mà hệ thống có thể khai thác bao gồm: triển khai ứng dụng web với Azure Web app, cơ sở dữ liệu với Azure Database for PostgreSQL flexible server, bộ nhớ đệm với Azure managed Redis, và kho lưu trữ dữ liệu đa phương tiện Azure Blob Storage.
 Điều này giúp việc quản lí vận hành hệ thống máy chủ đơn giản hơn, đảm bảo chất lượng hoạt động tốt với thời gian hoạt động cao, dễ dàng mở rộng, và tiết kiệm chi phí phần cứng cũng như bảo trì.
 \subsection {Công nghệ phía ứng dụng}
-Về phía ứng dụng, nhóm phát triển một ứng dụng di động chạy trên nền tảng Android. Ngôn ngữ lập trình chính được lựa chọn là Kotlin. Đây là ngôn ngữ hiện đại được Google khuyến nghị cho phát triển ứng dụng Android, có cú pháp cô đọng, hỗ trợ mạnh lập trình bất đồng bộ, từ đó giúp giảm lỗi trong quá trình lập trình. Khi khởi tạo dự án, mặc dù Android Studio vẫn hỗ trợ Java, tuy nhiên do Jetpack Compose sử dụng Kotlin compiler để biên dịch các thành phần giao diện, nhóm đã thống nhất sử dụng Kotlin làm ngôn ngữ chính cho toàn bộ ứng dụng nhằm đảm bảo tính nhất quán và dễ bảo trì mã nguồn.\par
+Về phía ứng dụng, nhóm phát triển 
+một ứng dụng di động chạy trên nền tảng Android. 
+Ngôn ngữ lập trình chính được lựa chọn là Kotlin. 
+Đây là ngôn ngữ hiện đại được Google khuyến nghị 
+cho phát triển ứng dụng Android, có cú pháp cô đọng, 
+hỗ trợ mạnh lập trình bất đồng bộ, từ đó giúp giảm 
+lỗi trong quá trình lập trình. Khi khởi tạo dự án, 
+mặc dù Android Studio vẫn hỗ trợ Java, tuy nhiên do 
+Jetpack Compose sử dụng Kotlin compiler để biên dịch 
+các thành phần giao diện, nhóm đã thống nhất sử dụng 
+Kotlin làm ngôn ngữ chính cho toàn bộ ứng dụng nhằm 
+đảm bảo tính nhất quán và dễ bảo trì mã nguồn.\par
 
-Để xây dựng giao diện người dùng, hệ thống sử dụng Jetpack Compose – bộ công cụ (UI toolkit) hiện đại do Google phát triển dành cho Android. Jetpack Compose cho phép mô tả giao diện theo kiểu khai báo, tập trung vào trạng thái (state) và luồng dữ liệu, thay vì phải thao tác trực tiếp với các thành phần View truyền thống. Điều này giúp việc xây dựng, tái sử dụng và chỉnh sửa giao diện trở nên nhanh chóng và trực quan hơn. Khi khởi tạo dự án trong Android Studio, Jetpack Compose đã được tích hợp sẵn vào cấu trúc dự án, giúp rút ngắn thời gian cấu hình ban đầu và hỗ trợ tốt cho việc phát triển các màn hình phức tạp của ứng dụng.\par
+Để xây dựng giao diện người dùng, hệ thống sử dụng 
+Jetpack Compose – bộ công cụ (UI toolkit) hiện đại do 
+Google phát triển dành cho Android. Jetpack Compose cho 
+phép mô tả giao diện theo kiểu khai báo, tập trung vào 
+trạng thái (state) và luồng dữ liệu, thay vì phải thao 
+tác trực tiếp với các thành phần View truyền thống. 
+Điều này giúp việc xây dựng, tái sử dụng và chỉnh sửa 
+giao diện trở nên nhanh chóng và trực quan hơn. Khi khởi 
+tạo dự án trong Android Studio, Jetpack Compose đã được 
+tích hợp sẵn vào cấu trúc dự án, giúp rút ngắn thời gian 
+cấu hình ban đầu và hỗ trợ tốt cho việc phát triển các màn hình phức tạp của ứng dụng.\par
 
-Bên cạnh đó, ứng dụng sử dụng Android SDK như là bộ công cụ nền tảng bắt buộc để xây dựng và chạy chương trình trên thiết bị Android. Android SDK cung cấp đầy đủ các thư viện hệ thống, API nền tảng, trình giả lập thiết bị, cùng các công cụ phục vụ quá trình biên dịch, đóng gói và gỡ lỗi ứng dụng. Nhờ đó, nhóm có thể kiểm thử ứng dụng trên nhiều cấu hình thiết bị khác nhau, mô phỏng các trường hợp thực tế và phát hiện lỗi sớm ngay trong giai đoạn phát triển.\par
+Đi cùng Jetpack Compose là những API kiểm thử được cung cấp sẵn,
+giúp việc kiểm thử tự động giao diện trở nên dễ dàng hơn. Đồng thời,
+nhóm cũng sử dụng JaCoCo - 1 thư viện mã nguồn mở để đo độ phủ mã nguồn.
+\par
+Bên cạnh đó, ứng dụng sử dụng Android SDK như là bộ 
+công cụ nền tảng bắt buộc để xây dựng và chạy chương 
+trình trên thiết bị Android. Android SDK cung cấp đầy 
+đủ các thư viện hệ thống, API nền tảng, trình giả lập 
+thiết bị, cùng các công cụ phục vụ quá trình biên dịch, 
+đóng gói và gỡ lỗi ứng dụng. Nhờ đó, nhóm có thể kiểm thử 
+ứng dụng trên nhiều cấu hình thiết bị khác nhau, mô phỏng các 
+trường hợp thực tế và phát hiện lỗi sớm ngay trong giai 
+đoạn phát triển.\par
 
-Đối với các chức năng liên quan đến trí tuệ nhân tạo, ứng dụng phía người dùng được thiết kế để tương tác với các mô hình ngôn ngữ lớn thông qua các API do phía máy chủ cung cấp. Cụ thể, hệ thống sử dụng các mô hình Gemini Flash 2.5 và Gemini Pro 2.5 của Google, cũng như mô hình Claude Haiku 4.5 của Anthropic, để xử lý các tác vụ như sinh bài tập trắc nghiệm. Đây đều là các mô hình ngôn ngữ lớn tiên tiến, thuộc hàng mới nhất hiện nay tại thời điểm phần mềm được bắt đầu phát triển.
+Đối với các chức năng liên quan đến trí tuệ nhân tạo, 
+ứng dụng phía người dùng được thiết kế để tương tác với 
+các mô hình ngôn ngữ lớn thông qua các API do phía máy 
+chủ cung cấp. Cụ thể, hệ thống sử dụng các mô hình 
+Gemini Flash 2.5 và Gemini Pro 2.5 của Google, 
+cũng như mô hình Claude Haiku 4.5 của Anthropic,
+ để xử lý các tác vụ như sinh bài tập trắc nghiệm. 
+ Đây đều là các mô hình ngôn ngữ lớn tiên tiến, 
+ thuộc hàng mới nhất hiện nay tại thời điểm phần 
+ mềm được bắt đầu phát triển.
 
 \section{Kiến trúc được sử dụng}
 \begin{itemize}
@@ -257,7 +325,7 @@ Bên cạnh đó, ứng dụng sử dụng Android SDK như là bộ công cụ 
 \end{figure}
 Hình trên thể hiện tổ chức tổng thể ở mức cao của hệ thống phần mềm. Hệ thống được chia thành 3 tầng:
 \begin{itemize}
-    \item \textbf{Tầng giao Ứng dụng (Application Layer):} chứa các thành phần thiết kế gắn với từng ca sử dụng của hệ thống.
+    \item \textbf{Tầng Ứng dụng (Application Layer):} chứa các thành phần thiết kế gắn với từng ca sử dụng của hệ thống.
     \item \textbf{Tầng Dịch vụ nghiệp vụ (Business Service Layer):} đóng gói cái trừu tượng, đối tượng, dịch vụ dùng chung cho nhiều ca sử dụng.
     \item \textbf{Tầng Dữ liệu (Data Layer):} quản lý việc lưu trữ, truy xuất dữ liệu từ cơ sở dữ liệu của hệ thống.
 \end{itemize}
@@ -570,18 +638,47 @@ Vậy nên trong phần mềm của báo cáo này, chúng tôi sử dụng kỹ
 \subfile {cuong/backend_cov.tex}
 \subsection{Độ phủ mã nguồn phía ứng dụng}
 Do giới hạn về thời gian và nguồn lực, đồng thời thực tế do bản chất của Android SDK 
-khi đo độ phủ tự động thông qua kiểm thử giao diện thường chỉ nhắm tới các chức năng
+khi đo độ phủ tự động thông qua kiểm thử giao diện thường người đo chỉ nhắm tới các chức năng
 nghiệp vụ chính mà người dùng sẽ thực hiện, cho nên độ phủ hiện tại chưa phủ được toàn bộ các dòng lệnh.
+\par
+Hơn nữa, nhóm đang sử dụng JaCoCo để đo độ phủ cho 3 chức năng lớn của ứng dụng đó là ``Xem chi tiết bài viết'' (\textit{postdetail}), 
+``Xác minh'' (\textit{auth}), ``Tạo bài viết'' (\textit{create}) và sau khi xem xét thì thấy dù 1 số test đã phủ hết chức năng nhưng 
+công cụ đo độ phủ khi hoạt động với các thành phần của Jetpack Compose thì vẫn gặp vấn đề không ổn định. Cụ thể, 
+ở hình 5.27 thể hiện việc 1 số dòng ở trong khối lệnh được gắn màu xanh (đã được chạy qua), nhưng 1 số dòng hiển nhiên đã được chạy qua nếu 
+bên trong nó đã gắn xanh thì lại không được tính.
+\par
+Vấn đề này của JaCoCo gây khó khăn cho việc đánh giá độ phủ mã nguồn. Có thể tham khảo thêm ở bài viết nói về 
+vấn đề này trong phần tài liệu tham khảo.\cite{stackoverflow}\par
 \begin{figure}[H]{Báo cáo độ phủ mã nguồn phía ứng dụng}
     \centering
     \includegraphics[width=0.8\textwidth]{anh/nhanh.png}
 \end{figure}
+
+\begin{figure}[H]{Minh họa độ phủ dòng lệnh của ``Xem chi tiết bài viết''}
+    \centering
+    \includegraphics[width=0.8\textwidth]{anh/nhanh2.png}
+\end{figure}
+
 \chapter{Kết luận}
 \section{Kết quả đạt được}
-Phần mềm đã hoàn thành các mục tiêu đề ra bao gồm thiết kế, kiểm thử, triển khai. Nhóm đã học được rất nhiều từ việc tổ chức triển khai dự án, cho tới cụ thể hơn là các kiến thức cơ bản về phát triển ứng dụng di động, ở đây là Android.
+Về báo cáo, nhóm đã hoàn thành các mục tiêu được đặt ra bởi giảng viên hướng dẫn. Về sản phẩm, ứng dụng của nhóm đã được triển khai
+ổn định trên nền tảng Android, với hệ thống cơ sở dữ liệu và máy chủ được triển khai trên nền tảng đám mây điện toán đám mây. Ứng dụng đã
+đáp ứng được các chức năng theo kế hoạch đề ra, với giao diện người dùng thân thiện, dễ sử dụng. Riêng về chức năng AI đang được áp dụng, 
+hiện tại ý nghĩa thống kê đã được xác nhận, nhưng về ý nghĩa thực tiễn vẫn còn cần thêm khảo sát trực tiếp từ người dùng để xác nhận được liệu 
+người dùng có nhận thấy được khác biệt giữa hai kỹ thuật prompt hay không. Tuy nhiên, do khác biệt tốt hơn vẫn nghiêng về phía \textit{Chain of Thoughts}, 
+nhóm vẫn sẽ dùng kỹ thuật này để triển khai chức năng AI, với mục đích tăng tối đa trải nghiệm người dùng. Ý nghĩa thực tiễn có thể được thể hiện cụ thể hơn 
+khi ứng dụng được triển khai trên một quy mô lớn hơn trên môi trường sử dụng thực tế.
+\par
+Về bản thân nhóm, nhóm đã học thêm được nhiều kinh nghiệm trong việc phát triển ứng dụng di động, từ lên ý tưởng, thiết kế, kiểm thử, triển khai, đặc biệt là quản lý quỹ thời gian và nguồn lực. 
 Đồng thời, dù điểm được nhấn mạnh của ứng dụng là trí tuệ nhân tạo, nhưng chức năng mà nhóm chọn khá đơn giản, chỉ là gọi API, một phần là vì các thành viên chưa có kinh nghiệm nhiều về phát triển trí tuệ nhân tạo, một phần là vì
 mục tiêu của ứng dụng không có nhiều không gian để mở rộng chức năng trí tuệ nhân tạo nào mà vừa phù hợp về mặt chức năng, hợp lý về logic, vừa cân bằng tài nguyên nguồn lực và thời gian.
 \section{Hướng phát triển trong tương lai}
+Ứng dụng vẫn còn nhiều điểm có thể cải thiện trong tương lai. Về mặt chức năng, ứng dụng có thể có thêm các tính năng liên quan tới vấn đề doanh thu như quảng cáo, 
+các gói dịch vụ trả phí không bắt buộc, để làm nguồn tài chính duy trì và phát triển ứng dụng. Thêm nữa, chức năng AI có thể được mở rộng thêm để dùng dữ liệu của người dùng 
+để huấn luyện mô hình riêng, thậm chí tăng tính cá nhân hóa bằng dữ liệu của từng người riêng nếu có sự cho phép.
+Về mặt giao diện, ứng dụng hướng tới cải thiện giao diện hơn nữa dựa vào 8 quy tắc vàng trong thiết kế giao diện người dùng.\cite{shneider}
+
+
 Sau khi hoàn thành dự án, nhóm rất mong nhận được nhiều lời khuyên đóng góp của thầy và các bạn để cải thiện hơn dự án.
 
 % Tài liệu tham khảo 
@@ -597,31 +694,35 @@ Sau khi hoàn thành dự án, nhóm rất mong nhận được nhiều lời kh
     \begin{bibsection}{Tiếng Việt}
         \bibitem{wilson}
             Phan Ngọc, Khoảng tin cậy Wilson, \textit{Viblo}, 2018, \url{https://viblo.asia/p/khoang-tin-cay-wilson-XRJ8Rld8VGq}
-
     \end{bibsection}
 
     \begin{bibsection}{Tiếng Anh}
+        \bibitem{ac1}
+            Wongpakaran, N., Wongpakaran, T., Wedding, D. et al. A comparison of Cohen’s Kappa and Gwet’s AC1 when calculating inter-rater reliability coefficients: a study conducted with personality disorder samples. BMC Med Res Methodol 13, 61 (2013), pp. 3.
         \bibitem{2chan}
             ``2channel'', \textit{Wikipedia}, Wikipedia Foundation, 4 October 2025, \url{https://en.wikipedia.org/wiki/2channel}
         \bibitem{Dcard}
             ``Dcard'', \textit{Wikipedia}, Wikipedia Foundation, 29 October 2025, \url{https://en.wikipedia.org/wiki/Dcard}
-        \bibitem{RACE}
-            G. Lai, Q. Xie, H. Liu, Y. Yang, and E. Hovy. RACE: Large-scale ReAding Comprehension Dataset From Examinations. \textit{arXiv preprint} arXiv:1704.04683, 2017. \url{https://arxiv.org/abs/1704.04683}
-        \bibitem{hopkin}
-            W. G. Hopkins, S. W. Marshall, A. M. Batterham, and J. Hanin. Progressive Statistics for Studies in Sports Medicine and Exercise Science. \textit{Med. Sci. Sports Exerc.}, Vol 41, No1, 2009 pp. 5.
         \bibitem{GRAPHPAD}
             H. Motulsky. GraphPad Prism v5 Statistics Guide, GraphPad Software Inc., 2007, pp. 35--36.
+        \bibitem{hopkin}
+            W. G. Hopkins, S. W. Marshall, A. M. Batterham, and J. Hanin. Progressive Statistics for Studies in Sports Medicine and Exercise Science. \textit{Med. Sci. Sports Exerc.}, Vol 41, No1, 2009 pp. 5.
         \bibitem{kappa}
             McHugh, Mary L. “Interrater reliability: the kappa statistic.” Biochemia medica vol. 22,3 (2012): 276-82.
-        \bibitem{ac1}
-            Wongpakaran, N., Wongpakaran, T., Wedding, D. et al. A comparison of Cohen’s Kappa and Gwet’s AC1 when calculating inter-rater reliability coefficients: a study conducted with personality disorder samples. BMC Med Res Methodol 13, 61 (2013), pp. 3.
         \bibitem{kappaparadox}
             Wongpakaran, N., Wongpakaran, T., Wedding, D. et al. A comparison of Cohen’s Kappa and Gwet’s AC1 when calculating inter-rater reliability coefficients: a study conducted with personality disorder samples. BMC Med Res Methodol 13, 61 (2013), pp. 2.
         \bibitem{kappatable}
             Landis, J. Richard, and Gary G. Koch. “The Measurement of Observer Agreement for Categorical Data.” Biometrics, vol. 33, no. 1, 1977, pp. 165. JSTOR, \url{https://doi.org/10.2307/2529310}.
-
+        \bibitem{RACE}
+            G. Lai, Q. Xie, H. Liu, Y. Yang, and E. Hovy. RACE: Large-scale ReAding Comprehension Dataset From Examinations. \textit{arXiv preprint} arXiv:1704.04683, 2017. \url{https://arxiv.org/abs/1704.04683}
+        \bibitem{shneider}
+            Wong, Euphemia. “Shneiderman’s Eight Golden Rules Will Help You Design Better Interfaces” IxDF - Interaction Design Foundation. 29 November, 2025. \url{https://www.interaction-design.org/literature/article/shneiderman-s-eight-golden-rules-will-help-you-design-better-interfaces}
+        \bibitem{stackoverflow}
+            ``Incorrect Jacoco code coverage for Kotlin coroutine'', \textit{Stack Overflow}, 18 October 2024, \url{https://stackoverflow.com/questions/53485360/incorrect-jacoco-code-coverage-for-kotlin-coroutine}
     \end{bibsection}
 \end{thebibliography}
+
+
 
 \end{document}
 

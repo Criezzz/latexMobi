@@ -1,0 +1,31 @@
+% !TeX root = ../main.tex
+% Bảng thành viên thực hiện
+
+{
+\makeatletter
+ \refstepcounter{a@table}
+ \def\@captype{a@table}
+ \def\@captiontext{\centering Bảng: Danh sách thành viên thực hiện}
+ \noindent\attachmentcaption\par\vspace{0.25cm}
+\makeatother}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\arrayrulewidth}{1pt}
+
+\begin{tabularx}{\textwidth}{|
+  >{\centering\arraybackslash}p{2.5cm}|
+  >{\raggedright\arraybackslash}X|
+  >{\raggedright\arraybackslash}X|
+  >{\centering\arraybackslash}p{2cm}|
+}
+\hline
+\textbf{MSV} & \textbf{Tên thành viên} & \textbf{Nhiệm vụ} & \textbf{\% đóng góp} \\
+\hline
+23020122 & Phùng Hải Nam & Leader, viết tài liệu, thực hiện chức năng AI, thiết kế frontend phụ, kiểm thử & 33 \\
+\hline
+23020019 & Nguyễn Văn Cường & Lập trình backend, kiểm thử, viết tài liệu, vẽ các biểu đồ hệ thống, ca sử dụng & 34 \\
+\hline
+23021724 & Tô Quang Thắng & Lập trình frontend chính, kiểm thử, viết tài liệu & 33 \\
+\hline
+\end{tabularx}
